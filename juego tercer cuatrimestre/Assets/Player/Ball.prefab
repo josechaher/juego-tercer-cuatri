@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3009786025047870062}
   - component: {fileID: 3009786025047870063}
   - component: {fileID: 3009786025047870056}
+  - component: {fileID: 416028313169421153}
   - component: {fileID: 7925209652564151369}
-  m_Layer: 0
-  m_Name: Chi Ball
+  m_Layer: 3
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79c560758c886af499e12aa246820204, type: 2}
+  - {fileID: 2100000, guid: 00139706994ff984fb23c0a1e794b94f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,12 +93,28 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3009786025047870057}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 60e3f5bc9c1374c488cefefc7f0c211f, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &416028313169421153
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3009786025047870057}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &7925209652564151369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9427f14ded80ff246b8fbc3e5ec4e0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargeSpeed: 40
   tr: {fileID: 6178930114773454048}
+  rb: {fileID: 416028313169421153}
+  shakeMagnitude: 0.01
+  maxShake: 0.02
+  shakeSpeed: 40
 --- !u!1 &3916470675671872616
 GameObject:
   m_ObjectHideFlags: 0

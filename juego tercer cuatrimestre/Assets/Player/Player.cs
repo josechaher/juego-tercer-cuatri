@@ -141,12 +141,19 @@ public class Player : MonoBehaviour
     {
         RaycastHit hit;        
 
+        
         if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, distToGround - 0.41f))
         {
-            isGrounded = true;
+            // Se asegura que no pueda chocarse con objetos en la capa "Player"
+            if (!(hit.collider.gameObject.layer == 3))
+            {
+                isGrounded = true;
+                debug.text = "Grounded";
+                velocity.y = 0;
+            }
+            
 
-            debug.text = "Grounded";
-            velocity.y = 0;
+            
         } else
         {
             isGrounded = false;
