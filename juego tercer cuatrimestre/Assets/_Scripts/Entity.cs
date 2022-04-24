@@ -14,8 +14,8 @@ public class Entity : MonoBehaviour
 	}
 
 
-	public virtual void TakeDamage(float amount)
+	public virtual void TakeDamage(float damage)
 	{
-		health -= amount;
+		health -= damage;
 	}
 }

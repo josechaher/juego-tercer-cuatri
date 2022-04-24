@@ -5,16 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : Entity
 {
-
-    public float health;
-    public float maxHealth = 100;
     public Slider slider;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        health = maxHealth;
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +20,8 @@ public class Enemy : Entity
     public override void TakeDamage(float damage)
     {
         health -= damage;
+
+        // Updates slider value
         slider.value = health / maxHealth;
     }
 }
