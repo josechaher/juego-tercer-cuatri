@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Life
+public class Enemy : Entity
 {
     // Start is called before the first frame update
     public GameObject platform;

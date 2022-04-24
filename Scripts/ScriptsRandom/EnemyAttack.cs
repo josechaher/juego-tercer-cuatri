@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-            Life health = collision.gameObject.GetComponent<Life>();
+            Entity health = collision.gameObject.GetComponent<Entity>();
             if (health != null)
             {
                 health.takeDamage(damage);

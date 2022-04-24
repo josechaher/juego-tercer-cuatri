@@ -38,8 +38,13 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+        // Si el jugador no esta en rango patrullar
         if (!playerInSightRange && !playerInAttackRange) Patroling();
+
+        // Si el jugador esta en rango perseguir
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+
+        // Si el jugador esta en rango de ataque, atacar
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
 
     }

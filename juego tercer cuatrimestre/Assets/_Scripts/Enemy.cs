@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
 
     public float health;
     public float maxHealth = 100;
-
     public Slider slider;
 
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage = 40)
+    public override void TakeDamage(float damage)
     {
         health -= damage;
         slider.value = health / maxHealth;
