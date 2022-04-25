@@ -7,9 +7,9 @@ public class Enemy : Entity
 {
     public Slider slider;
 
-    // Update is called once per frame
-    void Update()
+    protected override void ArtificialUpdate()
     {
+        base.ArtificialUpdate();
         slider.transform.forward = -Camera.main.transform.forward;
         if (health <= 0)
         {
