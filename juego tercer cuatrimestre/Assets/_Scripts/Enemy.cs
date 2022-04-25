@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : Entity
+public abstract class Enemy : Entity
 {
-    public Slider slider;
+    [SerializeField] private Slider slider;
+
 
     // Update is called once per frame
-    void Update()
+    protected override void ArtificialUpdate()
     {
+        // Makes slider face towards enemy
         slider.transform.forward = -Camera.main.transform.forward;
-        if (health <= 0)
+        if (Health <= 0)
         {
             Destroy(gameObject);
         }
     }
+    
 
     public override void TakeDamage(float damage)
     {
-        health -= damage;
+        base.TakeDamage(damage);
 
         // Updates slider value
-        slider.value = health / maxHealth;
+        slider.value = Health / MaxHealth;
     }
 }

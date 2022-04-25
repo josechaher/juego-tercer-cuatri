@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
-	public float health = 100;
-	public float maxHealth = 100;
+	protected float Health { get; set; }
+	protected float MaxHealth { get; set; }
 	
-	void Start()
+	private void Start()
 	{
-		health = maxHealth;
+		Health = MaxHealth;
+		print(MaxHealth);
 	}
 
+    private void Update()
+    {
+		ArtificialUpdate();
+    }
 
-	public virtual void TakeDamage(float damage)
+	protected abstract void ArtificialUpdate();
+
+
+    public virtual void TakeDamage(float damage)
 	{
-		health -= damage;
+		Health -= damage;
 	}
 }
