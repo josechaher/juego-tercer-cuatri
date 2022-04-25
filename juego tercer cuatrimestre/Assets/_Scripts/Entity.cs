@@ -5,26 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour
 {
-	protected float health = 100;
-	protected float maxHealth = 100;
+	public float health = 100;
+	public float maxHealth = 100;
 	
 	void Start()
 	{
-		SetHealth();
+		health = maxHealth;
 	}
 
-    private void Update()
-    {
-		ArtificialUpdate();
-    }
 
-    public virtual void TakeDamage(float damage)
+	public virtual void TakeDamage(float damage)
 	{
 		health -= damage;
 	}
-
-	protected virtual void ArtificialUpdate() { }
-
-	protected virtual void SetHealth() { }
-
 }
