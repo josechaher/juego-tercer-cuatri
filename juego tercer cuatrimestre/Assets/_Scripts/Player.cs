@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject ballPrefab;
     GameObject ball;
 
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
         cr = GetComponent<CharacterController>();
@@ -98,12 +100,14 @@ public class Player : MonoBehaviour
             glowIntensity = 0;
             handMaterial.EnableKeyword("_EMISSION");
             glowing = true;
+            animator.SetTrigger("Charge");
         }
         if (Input.GetMouseButtonUp(0))
         {
             ball.GetComponent<Ball>().Shoot();
             handMaterial.DisableKeyword("_EMISSION");
             glowing = false;
+            animator.SetTrigger("Shoot");
         }
         if (glowing)
         {
