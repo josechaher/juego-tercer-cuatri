@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Thug : Enemy
 {
-    public Thug()
+    private static float health = 75;
+
+    private void Awake()
     {
-        MaxHealth = 100;
+        SetHealth(health);
     }
 }
