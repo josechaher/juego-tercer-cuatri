@@ -14,6 +14,10 @@ public class Minion : Enemy
 
     protected override void ArtificialUpdate()
     {
-        
+        //Make minion patrol
+
+        //Make minion chase
+
+        //Make minion attack
     }
 }

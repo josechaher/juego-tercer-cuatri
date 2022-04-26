@@ -13,10 +13,6 @@ public abstract class Enemy : Entity
     {
         // Makes slider face enemy
         slider.transform.forward = -Camera.main.transform.forward;
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
     
 

@@ -28,5 +28,10 @@ public abstract class Entity : MonoBehaviour
     public virtual void TakeDamage(float damage)
 	{
 		CurrentHealth -= damage;
+
+		if (CurrentHealth <= 0)
+		{
+			Destroy(gameObject);
+		}
 	}
 }

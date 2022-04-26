@@ -10,4 +10,15 @@ public class Thug : Enemy
     {
         SetHealth(health);
     }
+
+    protected override void ArtificialUpdate()
+    {
+        base.ArtificialUpdate();
+
+        //Make thug patrol
+
+        //Make thug chase
+
+        //Make thug attack
+    }
 }
