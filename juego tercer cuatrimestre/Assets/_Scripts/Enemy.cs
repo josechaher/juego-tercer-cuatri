@@ -8,15 +8,11 @@ public abstract class Enemy : Entity
     [SerializeField] private Slider slider;
 
 
-    // Update is called once per frame
+    // ArtificialUpdate is called on Entity's update function
     protected override void ArtificialUpdate()
     {
-        // Makes slider face towards enemy
+        // Makes slider face enemy
         slider.transform.forward = -Camera.main.transform.forward;
-        if (Health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
     
 
@@ -25,6 +21,6 @@ public abstract class Enemy : Entity
         base.TakeDamage(damage);
 
         // Updates slider value
-        slider.value = Health / MaxHealth;
+        slider.value = CurrentHealth / MaxHealth;
     }
 }
