@@ -5,25 +5,33 @@ using UnityEngine.SceneManagement;
 
 public abstract class Entity : MonoBehaviour
 {
-	protected float Health { get; set; }
-	protected float MaxHealth { get; set; }
-	
-	private void Start()
-	{
-		Health = MaxHealth;
-		print(MaxHealth);
-	}
+	protected float CurrentHealth { get; set; } // Entity's current health
+	protected float MaxHealth { get; set; } // Entity's maximum health
 
     private void Update()
     {
 		ArtificialUpdate();
     }
 
-	protected abstract void ArtificialUpdate();
+	/// <summary>
+	/// Sets Entity's maximum health and makes that its current health
+	/// </summary>
+	/// <param name="h"></param>
+	protected void SetHealth(float h)
+    {
+		MaxHealth = h;
+		CurrentHealth = MaxHealth;
+    }
 
+	protected abstract void ArtificialUpdate();
 
     public virtual void TakeDamage(float damage)
 	{
-		Health -= damage;
+		CurrentHealth -= damage;
+
+		if (CurrentHealth <= 0)
+		{
+			Destroy(gameObject);
+		}
 	}
 }
