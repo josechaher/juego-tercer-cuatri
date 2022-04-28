@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Minion : Enemy
 {
-    private static float health = 100;
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        SetHealth(health);
+        
     }
 
-
-    protected override void ArtificialUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        //Make minion patrol
-
-        //Make minion chase
-
-        //Make minion attack
+        
     }
 }

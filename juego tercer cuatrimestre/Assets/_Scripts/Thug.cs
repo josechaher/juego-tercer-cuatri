@@ -4,21 +4,8 @@ using UnityEngine;
 
 public class Thug : Enemy
 {
-    private static float health = 75;
-
-    private void Awake()
+    public Thug()
     {
-        SetHealth(health);
-    }
-
-    protected override void ArtificialUpdate()
-    {
-        base.ArtificialUpdate();
-
-        //Make thug patrol
-
-        //Make thug chase
-
-        //Make thug attack
+        MaxHealth = 100;
     }
 }

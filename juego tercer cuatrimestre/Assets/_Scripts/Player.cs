@@ -49,8 +49,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject ballPrefab;
     GameObject ball;
 
-    [SerializeField] private Animator animator;
-
     private void Awake()
     {
         cr = GetComponent<CharacterController>();
@@ -90,7 +88,6 @@ public class Player : MonoBehaviour
         Jump();
         #endregion
 
-        #region SHOOTING
         if (Input.GetMouseButtonDown(0))
         {
             
@@ -100,27 +97,22 @@ public class Player : MonoBehaviour
             glowIntensity = 0;
             handMaterial.EnableKeyword("_EMISSION");
             glowing = true;
-            animator.SetTrigger("Charge");
         }
         if (Input.GetMouseButtonUp(0))
         {
             ball.GetComponent<Ball>().Shoot();
             handMaterial.DisableKeyword("_EMISSION");
             glowing = false;
-            animator.SetTrigger("Shoot");
         }
+
         if (glowing)
         {
             glowIntensity += 0.5f * Time.deltaTime;
             handMaterial.SetColor("_EmissionColor", color * glowIntensity);
         }
-        #endregion
 
     }
 
-    /// <summary>
-    /// Walk towards where player is facing
-    /// </summary>
     void Walk()
     {
         moveDirection = transform.right * Input.GetAxisRaw("Horizontal")
@@ -129,16 +121,10 @@ public class Player : MonoBehaviour
         cr.Move(moveDirection.normalized * moveSpeed * Time.deltaTime);
     }
 
-    /// <summary>
-    /// Rotates player and camera according to mouse movements
-    /// </summary>
     void Turn()
     {
-        mousePosition.x += Input.GetAxisRaw("Mouse X") * lookSensitivity; 
-        mousePosition.x %= 360; // Snaps rotation angle back to 0 when it reaches 360 or -360 degrees
-
-        mousePosition.y -= Input.GetAxisRaw("Mouse Y") * lookSensitivity; 
-        mousePosition.y = Mathf.Clamp(mousePosition.y, -90, 90); // Prevents camera from rotating past its vertical axis
+        mousePosition.x += Input.GetAxisRaw("Mouse X") * lookSensitivity; mousePosition.x %= 360;
+        mousePosition.y -= Input.GetAxisRaw("Mouse Y") * lookSensitivity; mousePosition.y = Mathf.Clamp(mousePosition.y, -90, 90);
 
         transform.rotation = Quaternion.Euler(Vector3.up * mousePosition.x);
         Camera.main.transform.localRotation = Quaternion.Euler(Vector3.right * mousePosition.y);
@@ -148,7 +134,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            // Velocity is set so that player will reach desired jump height and then start falling
             velocity.y = Mathf.Sqrt(-2 * gravity * jumpHeight);
         }
     }
@@ -158,10 +143,10 @@ public class Player : MonoBehaviour
     {
         RaycastHit hit;        
 
-        // Checks Player's distance from the ground
+        
         if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, distToGround - 0.41f))
         {
-            // Ignore collisions in "Player" layer
+            // Se asegura que no pueda chocarse con objetos en la capa "Player"
             if (!(hit.collider.gameObject.layer == 3))
             {
                 isGrounded = true;

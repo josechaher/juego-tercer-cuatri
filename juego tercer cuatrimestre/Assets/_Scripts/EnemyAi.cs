@@ -29,7 +29,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("PlayerObject").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -58,7 +58,6 @@ public class EnemyAi : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // If distance to walkpoint is less than 1, then find another walkpoint.
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
@@ -70,12 +69,8 @@ public class EnemyAi : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
-        // Check if there is ground below walkpoint before confirming walkpoint
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-        {
             walkPointSet = true;
-            print("WALKPOINT SET");
-        }
     }
 
     private void ChasePlayer()
@@ -94,15 +89,12 @@ public class EnemyAi : MonoBehaviour
 
             ///Attack code here
 
-            // Shoots a projectile forwards (towards the enemy)
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             ///
-
-            // Wait before next attack
-            alreadyAttacked = true;            
+            alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -110,5 +102,17 @@ public class EnemyAi : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    public void takeDamage(int damage)
+    {
+        health = -health;
+
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+    }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }
