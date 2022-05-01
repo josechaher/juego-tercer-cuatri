@@ -74,7 +74,6 @@ public class EnemyAi : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             walkPointSet = true;
-            print("WALKPOINT SET");
         }
     }
 
