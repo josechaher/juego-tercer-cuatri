@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 
 public class Player : MonoBehaviour
 {
 
+    public int points;
 
     // IDLE
     // GROUNDED
@@ -175,6 +177,15 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             debug.text = "Not Grounded";
+        }
+    }
+
+    public void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
+        if (points >= 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
