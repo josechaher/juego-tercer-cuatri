@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Material handMaterial;
     [SerializeField] private Renderer hand;
 
+    [SerializeField] ParticleSystem handParticles;
+
     bool isGrounded;
 
     public bool glowing = false;
@@ -98,6 +100,8 @@ public class Player : MonoBehaviour
             
             ball = Instantiate(ballPrefab, Camera.main.transform);
             ball.transform.position = ballSpawn.position;
+
+            handParticles.Play();
             
             glowIntensity = 0;
             handMaterial.EnableKeyword("_EMISSION");
@@ -106,6 +110,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            handParticles.Stop();
             ball.GetComponent<Ball>().Shoot();
             handMaterial.DisableKeyword("_EMISSION");
             glowing = false;
