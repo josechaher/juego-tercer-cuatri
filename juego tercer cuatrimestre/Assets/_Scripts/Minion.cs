@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Minion : Enemy
 {
-    private static float health = 100;
+    private float health = 100;
 
     private void Awake()
     {

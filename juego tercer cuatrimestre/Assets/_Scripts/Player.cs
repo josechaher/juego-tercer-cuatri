@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    public int points;
-
     // IDLE
     // GROUNDED
     // MOVING
@@ -185,12 +183,4 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
-        if (points >= 2)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-    }
 }

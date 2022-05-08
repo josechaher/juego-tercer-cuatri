@@ -7,13 +7,12 @@ public class Collector : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.GetComponent<Player>() != null)
+        if (collision.GetComponent<SealsManager>() != null)
         {
-            collision.GetComponent<Player>().points++;
+            collision.GetComponent<SealsManager>().points++;
             GetComponent<AudioSource>().Play();
             Destroy(this.gameObject);
         }
-       
     }
 
     private void Update()
