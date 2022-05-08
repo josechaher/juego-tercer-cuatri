@@ -8,18 +8,6 @@ public class SlidingDoor : MonoBehaviour
     [SerializeField] float speed = 5;
     [SerializeField] float height = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void Open()
     {
         StartCoroutine(Slide());
