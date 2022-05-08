@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 
@@ -165,4 +166,23 @@ public class PendulumScript : MonoBehaviour
 		Gizmos.DrawSphere(this.Bob.transform.position + resultant, .2f);
 
 	}
+=======
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PendulumScript : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+>>>>>>> Stashed changes
 }
