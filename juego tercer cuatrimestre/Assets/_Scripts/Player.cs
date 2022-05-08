@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
 
     // IDLE
@@ -183,4 +183,8 @@ public class Player : MonoBehaviour
         }
     }
 
+    protected override void ArtificialUpdate()
+    {
+       
+    }
 }
