@@ -8,7 +8,6 @@ public class PendulumScript : MonoBehaviour
 	public GameObject Pivot;
 	public GameObject Bob;
 
-
 	public float mass = 1f;
 
 	float ropeLength = 2f;
@@ -26,7 +25,6 @@ public class PendulumScript : MonoBehaviour
 	private float gravityForce = 0f;
 
 	Vector3 currentVelocity = new Vector3();
-
 	Vector3 currentStatePosition;
 	Vector3 previousStatePosition;
 
@@ -34,7 +32,6 @@ public class PendulumScript : MonoBehaviour
 	{
 		this.bobStartingPosition = this.Bob.transform.position;
 		this.bobStartingPositionSet = true;
-
 		this.PendulumInit();
 	}
 
@@ -48,7 +45,6 @@ public class PendulumScript : MonoBehaviour
 	{
 		float frameTime = Time.time - currentTime;
 		this.currentTime = Time.time;
-
 		this.accumulator += frameTime;
 
 		while (this.accumulator >= this.dt)
@@ -60,9 +56,7 @@ public class PendulumScript : MonoBehaviour
 		}
 
 		float alpha = this.accumulator / this.dt;
-
 		Vector3 newPosition = this.currentStatePosition * alpha + this.previousStatePosition * (1f - alpha);
-
 		this.Bob.transform.position = newPosition;
 	}
 
@@ -79,7 +73,6 @@ public class PendulumScript : MonoBehaviour
 	void ResetPendulumForces()
 	{
 		this.currentVelocity = Vector3.zero;
-
 		this.currentStatePosition = this.Bob.transform.position;
 	}
 
@@ -92,7 +85,6 @@ public class PendulumScript : MonoBehaviour
 	void MoveBob(Vector3 resetBobPosition)
 	{
 		this.Bob.transform.position = resetBobPosition;
-
 		this.currentStatePosition = resetBobPosition;
 	}
 
@@ -106,13 +98,11 @@ public class PendulumScript : MonoBehaviour
 		Vector3 pivot_p = this.Pivot.transform.position;
 		Vector3 bob_p = this.currentStatePosition;
 
-
 		Vector3 auxiliaryMovementDelta = this.currentVelocity * deltaTime;
 		float distanceAfterGravity = Vector3.Distance(pivot_p, bob_p + auxiliaryMovementDelta);
 
 		if (distanceAfterGravity > this.ropeLength || Mathf.Approximately(distanceAfterGravity, this.ropeLength))
 		{
-
 			this.tensionDirection = (pivot_p - bob_p).normalized;
 
 			this.pendulumSideDirection = (Quaternion.Euler(0f, 90f, 0f) * this.tensionDirection);
@@ -120,7 +110,6 @@ public class PendulumScript : MonoBehaviour
 			this.pendulumSideDirection.Normalize();
 
 			this.tangentDirection = (-1f * Vector3.Cross(this.tensionDirection, this.pendulumSideDirection)).normalized;
-
 
 			float inclinationAngle = Vector3.Angle(bob_p - pivot_p, this.gravityDirection);
 
@@ -151,7 +140,6 @@ public class PendulumScript : MonoBehaviour
 
 		Gizmos.DrawWireCube(this.bobStartingPosition, new Vector3(.5f, .5f, .5f));
 
-
 		// Blue: Auxilary
 		Gizmos.color = new Color(.3f, .3f, 1f); // blue
 		Vector3 auxVel = .3f * this.currentVelocity;
@@ -175,8 +163,6 @@ public class PendulumScript : MonoBehaviour
 		Vector3 resultant = gravity + tension;
 		Gizmos.DrawRay(this.Bob.transform.position, resultant);
 		Gizmos.DrawSphere(this.Bob.transform.position + resultant, .2f);
-
-
 
 	}
 }

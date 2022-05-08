@@ -15,7 +15,7 @@ public abstract class Entity : MonoBehaviour
 
 	/// <summary>
 	/// Sets Entity's maximum health and makes that its current health
-	/// </summary>
+	///</summary>
 	/// <param name="h"></param>
 	protected void SetHealth(float h)
     {
