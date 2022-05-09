@@ -18,6 +18,7 @@ public class Player : Entity
 
     // CLIMBING
 
+    public float playerHealth;
 
     public Text debug;
 
@@ -185,8 +186,16 @@ public class Player : Entity
 
     protected override void ArtificialUpdate()
     {
-        MaxHealth = 100;
-        CurrentHealth = MaxHealth;
         
+    }
+
+    public void FixedUpdate()
+    {
+        playerHealth = MaxHealth;
+        MaxHealth = CurrentHealth;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
     }
 }
