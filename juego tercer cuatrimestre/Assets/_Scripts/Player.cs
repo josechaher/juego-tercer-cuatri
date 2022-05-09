@@ -18,7 +18,9 @@ public class Player : Entity
 
     // CLIMBING
 
-    public float playerHealth;
+    public float PlayerHealth;
+
+    [SerializeField] private Slider slider;
 
     public Text debug;
 
@@ -58,6 +60,7 @@ public class Player : Entity
     {
         cr = GetComponent<CharacterController>();
         distToGround = cr.height / 2;
+
     }
 
     
@@ -66,6 +69,7 @@ public class Player : Entity
         handMaterial = hand.GetComponent<Renderer>().material;
         color = handMaterial.GetColor("_EmissionColor");
         Cursor.lockState = CursorLockMode.Locked;
+        SetHealth(PlayerHealth);
     }
 
     void Update()
@@ -122,6 +126,12 @@ public class Player : Entity
         }
         #endregion
 
+        slider.value = PlayerHealth / MaxHealth;
+
+        if (PlayerHealth <= 0)
+        {
+            SceneManager.LoadScene("Level 1 - Roro");
+        }
     }
 
     /// <summary>
@@ -184,18 +194,33 @@ public class Player : Entity
         }
     }
 
+    // ArtificialUpdate is called on Entity's update function
     protected override void ArtificialUpdate()
     {
+        // Makes slider face enemy
+        slider.transform.forward = Camera.main.transform.forward;
+    }
+
+
+    public virtual void TakeDamage(int amount)
+    {
+        PlayerHealth -= amount;
+        amount = 25;
+        // Updates slider value
         
+
     }
 
-    public void FixedUpdate()
-    {
-        playerHealth = MaxHealth;
-        MaxHealth = CurrentHealth;
-    }
+    /*private void OnCollisionEnter(Collision collision)
+     {
+         Player player = collision.gameObject.GetComponent<EnemyAi>(GameObject projectile);
+             if (Player.TakeDamage())
+             {
 
-    private void OnCollisionEnter(Collision collision)
-    {
-    }
+             }
+     }
+    */
 }
+
+
+

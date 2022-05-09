@@ -2309,7 +2309,7 @@ Transform:
   - {fileID: 1987928233}
   - {fileID: 933801006}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &196672439
 GameObject:
@@ -9092,7 +9092,7 @@ GameObject:
   - component: {fileID: 197803055}
   m_Layer: 0
   m_Name: Demon (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9127,6 +9127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  projectileDamage: 0
   agent: {fileID: 197803056}
   player: {fileID: 426433251}
   whatIsGround:
@@ -9179,6 +9180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 127074838}
+  projectileDamage: 0
 --- !u!65 &197803058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9187,7 +9189,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197803053}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.43838271, y: 1.6668049, z: 0.3838466}
@@ -36092,7 +36094,7 @@ Transform:
   - {fileID: 1879356136}
   - {fileID: 174219227}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314612024
 GameObject:
@@ -36563,7 +36565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &379071096
 GameObject:
@@ -36910,7 +36912,7 @@ Transform:
   - {fileID: 813044634}
   - {fileID: 794603308}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &412779039 stripped
 GameObject:
@@ -37663,7 +37665,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &454260501
 GameObject:
@@ -38000,7 +38002,7 @@ RectTransform:
   - {fileID: 2044737481}
   - {fileID: 1117799421}
   - {fileID: 397827777}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 426433251}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -38796,7 +38798,7 @@ Transform:
   - {fileID: 587947328}
   - {fileID: 696078515}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &543064614
 GameObject:
@@ -39933,6 +39935,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2044737482}
     - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 1117799422}
+    - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+      propertyPath: PlayerHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: playerHealth
       value: 100
       objectReference: {fileID: 0}
@@ -39946,7 +39956,7 @@ PrefabInstance:
       objectReference: {fileID: 1442415270}
     - target: {fileID: 214110760504815461, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 214110760504815461, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41466,7 +41476,7 @@ Transform:
   - {fileID: 1029288930}
   - {fileID: 231317724}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &774724672 stripped
 Transform:
@@ -44152,7 +44162,7 @@ Transform:
   - {fileID: 1512822090}
   - {fileID: 788162533}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942471435
 GameObject:
@@ -44294,7 +44304,7 @@ Transform:
   - {fileID: 884746669}
   - {fileID: 630200843}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958521777
 GameObject:
@@ -44940,7 +44950,7 @@ Transform:
   - {fileID: 163425690}
   - {fileID: 1550246765}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017168638
 GameObject:
@@ -46433,6 +46443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 379071098}
+  projectileDamage: 25
 --- !u!195 &1170529190
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -46468,6 +46479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  projectileDamage: 0
   agent: {fileID: 1170529190}
   player: {fileID: 426433251}
   whatIsGround:
@@ -50074,7 +50086,7 @@ GameObject:
   - component: {fileID: 1439275852}
   m_Layer: 0
   m_Name: Demon (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50109,6 +50121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  projectileDamage: 0
   agent: {fileID: 1439275853}
   player: {fileID: 426433251}
   whatIsGround:
@@ -50161,6 +50174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2136096331}
+  projectileDamage: 0
 --- !u!65 &1439275855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50169,7 +50183,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439275850}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.43838271, y: 1.6668049, z: 0.3838466}
@@ -52642,7 +52656,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751468157
 GameObject:
@@ -55587,7 +55601,7 @@ Transform:
   - {fileID: 391289111}
   - {fileID: 1451872199}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004099072
 GameObject:
@@ -55905,7 +55919,7 @@ Transform:
   - {fileID: 1439275851}
   - {fileID: 197803054}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044737480
 GameObject:
@@ -56142,7 +56156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096606194
 GameObject:
@@ -56665,7 +56679,7 @@ GameObject:
   - component: {fileID: 1170529191}
   m_Layer: 0
   m_Name: Demon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56678,7 +56692,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147710299066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.43838271, y: 1.6668049, z: 0.3838466}

@@ -98,6 +98,7 @@ public class EnemyAi : Enemy
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
+
             ///
 
             // Wait before next attack
