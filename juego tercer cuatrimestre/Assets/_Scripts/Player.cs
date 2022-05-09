@@ -185,6 +185,8 @@ public class Player : Entity
 
     protected override void ArtificialUpdate()
     {
-       
+        MaxHealth = 100;
+        CurrentHealth = MaxHealth;
+        
     }
 }
