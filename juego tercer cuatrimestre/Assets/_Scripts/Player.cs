@@ -126,6 +126,7 @@ public class Player : Entity
         }
         #endregion
 
+        //Life Bar
         slider.value = PlayerHealth / MaxHealth;
 
         if (PlayerHealth <= 0)
@@ -201,25 +202,15 @@ public class Player : Entity
         slider.transform.forward = Camera.main.transform.forward;
     }
 
-
-    public virtual void TakeDamage(int amount)
+    private void OnCollisionEnter(Collision collision)
     {
-        PlayerHealth -= amount;
-        amount = 25;
-        // Updates slider value
         
-
+        if (collision.gameObject.tag=="Enemy")
+        {
+            PlayerHealth -= 25;
+        }
     }
 
-    /*private void OnCollisionEnter(Collision collision)
-     {
-         Player player = collision.gameObject.GetComponent<EnemyAi>(GameObject projectile);
-             if (Player.TakeDamage())
-             {
-
-             }
-     }
-    */
 }
 
 
