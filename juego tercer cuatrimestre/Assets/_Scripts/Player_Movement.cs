@@ -14,13 +14,13 @@ public class Player_Movement
     Transform _t;
     
     //turn
-    public Vector2 _mousePosition;
+    Vector2 _mousePosition;
     float _lookSensitivity ;
     
 
     //salto
     float _jh ; //jumpHeight
-    public Vector3 _v;              //velocity
+    Vector3 _v;              //velocity
     float _g ;//gravity
     float _dtg; //distToGround
 
