@@ -202,12 +202,12 @@ public class Player : Entity
         slider.transform.forward = Camera.main.transform.forward;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        
-        if (collision.gameObject.tag=="Enemy")
+        if (hit.gameObject.tag == "Bullet")
         {
             PlayerHealth -= 25;
+            Destroy(hit.gameObject);
         }
     }
 
