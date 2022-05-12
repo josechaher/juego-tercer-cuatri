@@ -19,8 +19,6 @@ public class Player : Entity
     // CLIMBING
     Player_Movement _move;
 
-    public float PlayerHealth;
-
     [SerializeField] private Slider slider;
 
     public Text debug;
@@ -66,9 +64,12 @@ public class Player : Entity
     //Animator
     [SerializeField] private Animator animator;
 
+    private static float health = 100;
+
     private void Awake()
     {
         cr = GetComponent<CharacterController>();
+        SetHealth(health);
     }
 
 
@@ -78,7 +79,7 @@ public class Player : Entity
         color = handMaterial.GetColor("_EmissionColor");
         Cursor.lockState = CursorLockMode.Locked;
         distToGround = cr.height / 2;
-        SetHealth(PlayerHealth);
+        SetHealth(health);
         _move = new Player_Movement(moveDirection, moveSpeed, cr, transform, mousePosition, lookSensitivity, jumpHeight, velocity, gravity, distToGround, isGrounded, debug);
     }
 
@@ -120,9 +121,9 @@ public class Player : Entity
         #endregion
 
         //Life Bar
-        slider.value = PlayerHealth / MaxHealth;
+        slider.value = CurrentHealth / MaxHealth;
 
-        if (PlayerHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             SceneManager.LoadScene("Level 1 - Roro");
         }
@@ -132,7 +133,7 @@ public class Player : Entity
     {
         if (hit.gameObject.tag == "Bullet")
         {
-            PlayerHealth -= 25;
+            CurrentHealth -= 25;
             Destroy(hit.gameObject);
         }
     }
