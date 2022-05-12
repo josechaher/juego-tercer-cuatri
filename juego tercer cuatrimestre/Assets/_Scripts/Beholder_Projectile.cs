@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Beholder_Projectile : MonoBehaviour
 {
-    public float speed = 5;
+    public float speed = 3;
     Transform player;
 
     private void Start()
@@ -19,13 +19,18 @@ public class Beholder_Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        Ball ball = collider.gameObject.GetComponent<Ball>();
         Player player = collider.gameObject.GetComponent<Player>();
         if (player)
         {
             player.TakeDamage(20);
             Debug.Log("Le pegue al player.");
-            
-        }
+            Destroy(gameObject);
 
+        }
+        else if (ball)
+        {
+            Destroy(gameObject);
+        }
     }
 }

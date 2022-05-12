@@ -8,8 +8,13 @@ public class Beholder : Enemy
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject beholderEye;
+    public GameObject beholder_projectile;
+    
+    public Transform beholderEye;
+    public Transform spawnAttack;
 
+    public LayerMask whatIsPlayer;
+     
     public float attackRange;
     public bool playerInAttackRange;
 
@@ -22,6 +27,8 @@ public class Beholder : Enemy
 
     private void Update()
     {
+
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (playerInAttackRange)
             AttackPlayer();
     }
@@ -32,7 +39,7 @@ public class Beholder : Enemy
 
         if(!alreadyAttacked)
         {
-
+            Instantiate(beholder_projectile, spawnAttack.position, Quaternion.identity);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -41,5 +48,11 @@ public class Beholder : Enemy
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

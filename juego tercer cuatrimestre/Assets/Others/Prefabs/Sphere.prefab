@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2229687655802855924}
   - component: {fileID: 2229687655802855925}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Beholder Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 0.47581255, y: 0.47581255, z: 0.47581255}
   m_Children:
   - {fileID: 2229687656524791538}
+  - {fileID: 6826902022055310594}
   m_Father: {fileID: 2229687657061669720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,7 +110,7 @@ GameObject:
   - component: {fileID: 2229687656524791532}
   - component: {fileID: 2229687656524791533}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Beholder Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +305,38 @@ MonoBehaviour:
   projectileDamage: 0
   player: {fileID: 0}
   timeBetweenAttacks: 0
+  beholder_projectile: {fileID: 0}
   beholderEye: {fileID: 0}
   attackRange: 0
   playerInAttackRange: 0
   health: 0
+--- !u!1 &2891098063335783556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6826902022055310594}
+  m_Layer: 0
+  m_Name: SpawnAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6826902022055310594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891098063335783556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.11, z: -0.684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2229687655802855930}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
