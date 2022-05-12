@@ -18,11 +18,12 @@ public class Beholder : Enemy
     public float attackRange;
     public bool playerInAttackRange;
 
-    public float health;
+    private static float health = 200;
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        SetHealth(health);
     }
 
     private void Update()
