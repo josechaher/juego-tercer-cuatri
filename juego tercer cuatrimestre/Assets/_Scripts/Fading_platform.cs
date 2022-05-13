@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fading_platform : MonoBehaviour
 {
     [SerializeField] string playerTag = "Player";
-    [SerializeField] float DisappearTime = 3;
+    [SerializeField] float disappearTime = 3;
 
     Animator myAnim;
 
@@ -15,7 +15,7 @@ public class Fading_platform : MonoBehaviour
     void Start()
     {
         myAnim = GetComponent<Animator>();
-        myAnim.SetFloat("DisappearTime", 1 / DisappearTime); // esto controla la velociad con la que la plataforma desaparece
+        myAnim.SetFloat("DisappearTime", 1 / disappearTime); // esto controla la velociad con la que la plataforma desaparece
     }
 
 
@@ -23,7 +23,7 @@ public class Fading_platform : MonoBehaviour
     {
         if (collision.transform.tag == playerTag)
         {
-            Debug.Log("la plataforma colisiono con ekl jugador");
+            Debug.Log("la plataforma colisiono con el jugador");
             myAnim.SetBool("Trigger", true);
         }
     }

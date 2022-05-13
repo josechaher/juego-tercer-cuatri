@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3009786025047870056}
   - component: {fileID: 416028313169421153}
   - component: {fileID: 7925209652564151369}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8922633565287750061}
   - component: {fileID: 8143126868040453186}
   - component: {fileID: 7869493712684342188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4947,7 +4947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7071309451421020625}
   - component: {fileID: 6178930114773454048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
