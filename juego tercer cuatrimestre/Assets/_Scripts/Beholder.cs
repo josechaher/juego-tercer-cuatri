@@ -9,9 +9,9 @@ public class Beholder : Enemy
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject beholder_projectile;
-    
+
     public Transform beholderEye;
-    public Transform spawnAttack;
+    public Transform spawnAttack, spawnAttack1, spawnAttack2, spawnAttack3;
 
     public LayerMask whatIsPlayer;
      
@@ -41,6 +41,18 @@ public class Beholder : Enemy
         if(!alreadyAttacked)
         {
             Instantiate(beholder_projectile, spawnAttack.position, Quaternion.identity);
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+            Instantiate(beholder_projectile, spawnAttack1.position, Quaternion.identity);
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+            Instantiate(beholder_projectile, spawnAttack2.position, Quaternion.identity);
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+            Instantiate(beholder_projectile, spawnAttack3.position, Quaternion.identity);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
