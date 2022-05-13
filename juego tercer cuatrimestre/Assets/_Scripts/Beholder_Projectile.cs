@@ -24,6 +24,7 @@ public class Beholder_Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        
         Ball ball = collider.gameObject.GetComponent<Ball>();
         Player player = collider.gameObject.GetComponent<Player>();
         if (player)
@@ -39,6 +40,7 @@ public class Beholder_Projectile : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        
     }
 
     private void OnDestroy()
