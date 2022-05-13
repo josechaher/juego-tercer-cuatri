@@ -131,7 +131,7 @@ public class Player_Movement
         {
             Debug.Log("estoy en el raycast");
             // Ignore collisions in "Player" layer
-            if (!(hit.collider.gameObject.layer == 3))
+            if (!(hit.collider.gameObject.layer == 3) && !(hit.collider.gameObject.layer == 8))
             {
                 _isGrounded = true;
                 debug.text = "Grounded";

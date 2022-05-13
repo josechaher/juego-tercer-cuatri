@@ -127,6 +127,11 @@ public class Player : Entity
         {
             Destroy(gameObject);            
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

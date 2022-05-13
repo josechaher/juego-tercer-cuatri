@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 214110760504815386}
   - component: {fileID: 214110760504815385}
   - component: {fileID: 304783070971810128}
+  - component: {fileID: 685006929}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355419c39f3fc2548bd657e1253de923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHealth: 0
   slider: {fileID: 0}
   debug: {fileID: 0}
   moveSpeed: 5
@@ -127,7 +127,7 @@ MonoBehaviour:
   gravity: -10
   handMaterial: {fileID: 2100000, guid: 79c560758c886af499e12aa246820204, type: 2}
   hand: {fileID: 397213341428769794}
-  handParticles: {fileID: 0}
+  handParticles: {fileID: 7505615100193671136}
   isGrounded: 0
   glowing: 0
   glowIntensity: 0
@@ -150,6 +150,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &685006929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214110760504815384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e00def23f488e74893cd55603cca5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
 --- !u!1 &214110760937905562
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,8 +207,8 @@ Camera:
   m_GameObject: {fileID: 214110760937905562}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.035410516, g: 0.027634395, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -216,7 +229,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -608,6 +621,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7697181387330725811, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7878466767565118907, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 5.9679017e-17
@@ -674,6 +691,11 @@ GameObject:
 --- !u!4 &3853852126767667514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000056894006524265, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
+  m_PrefabInstance: {fileID: 214110761608454227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7505615100193671136 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7697181387330725811, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
   m_PrefabInstance: {fileID: 214110761608454227}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &397213341428769794 stripped
