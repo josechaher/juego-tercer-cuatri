@@ -132,15 +132,12 @@ public class Player_Movement
             Debug.Log("estoy en el raycast");
             // Ignore collisions in "Player" layer
 
-            
-            
-
-            _isGrounded = true;
-            debug.text = "Grounded";
-            _v.y = 0;
-            
-
-
+            if (!hit.collider.isTrigger)
+            {
+                _isGrounded = true;
+                debug.text = "Grounded";
+                _v.y = 0;
+            }          
 
         }
         else
