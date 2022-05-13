@@ -125,7 +125,7 @@ public class Player : Entity
 
         if (CurrentHealth <= 0)
         {
-            SceneManager.LoadScene("Level 1 - Roro");
+            Destroy(gameObject);            
         }
     }
 
@@ -143,6 +143,10 @@ public class Player : Entity
         CurrentHealth -= damage;
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("Level 1 - Roro");
+    }
 }
 
 
