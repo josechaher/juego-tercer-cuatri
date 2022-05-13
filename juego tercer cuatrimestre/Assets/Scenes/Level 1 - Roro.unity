@@ -1000,11 +1000,6 @@ Transform:
   m_Father: {fileID: 382763221}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &91863613 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2229687655802855930, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-  m_PrefabInstance: {fileID: 1876384934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &95109166
 Mesh:
   m_ObjectHideFlags: 0
@@ -34880,11 +34875,6 @@ Transform:
   m_Father: {fileID: 1700172074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1424094050 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6826902022055310594, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-  m_PrefabInstance: {fileID: 1876384934}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1428274652
 GameObject:
   m_ObjectHideFlags: 0
@@ -39203,13 +39193,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2229687655802855930, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.291
+    - target: {fileID: 1447930406, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2229687656524791538, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.338
+    - target: {fileID: 1447930406, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2229687657061669720, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
       propertyPath: m_RootOrder
@@ -39259,42 +39249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beholder
       objectReference: {fileID: 0}
-    - target: {fileID: 6826902022055310594, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.706
-      objectReference: {fileID: 0}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: health
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 426433251}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: attackRange
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: beholderEye
-      value: 
-      objectReference: {fileID: 91863613}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: spawnAttack
-      value: 
-      objectReference: {fileID: 1424094050}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: timeBetweenAttacks
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: beholder_projectile
-      value: 
-      objectReference: {fileID: 3419846499986786689, guid: 303c7556a2214674cb603704c7cb08c6, type: 3}
-    - target: {fileID: 9147092204324494531, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
-      propertyPath: whatIsPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3839592e1082f9b4e88fa39836ac9866, type: 3}
 --- !u!1 &1877137613
