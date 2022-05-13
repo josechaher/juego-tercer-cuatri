@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class PlatformAttach : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject player;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Player)
+        print("platform collision");
+        if (other.gameObject == player)
         {
-            Player.transform.parent = transform;
+            print("player is on top");
+            player.transform.parent = transform;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == Player)
+        if (other.gameObject == player)
         {
-            Player.transform.parent = null;
+            player.transform.parent = null;
         }
     }
 }

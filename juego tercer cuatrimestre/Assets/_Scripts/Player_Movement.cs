@@ -70,7 +70,12 @@ public class Player_Movement
         _moveDirection = _t.right * Input.GetAxisRaw("Horizontal")
                     + _t.forward * Input.GetAxisRaw("Vertical");
 
-        _cr.Move(_moveDirection.normalized * _moveSpeed * Time.deltaTime);
+        if (_moveDirection != Vector3.zero)
+        {
+            Debug.Log("moviendose");
+            _cr.Move(_moveDirection.normalized * _moveSpeed * Time.deltaTime);
+            _moveDirection = Vector3.zero;
+        }        
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) _moveSpeed *= 2;
         if (Input.GetKeyUp(KeyCode.LeftShift)) _moveSpeed /= 2;     //esto esta rancio
@@ -97,7 +102,10 @@ public class Player_Movement
     {
         _v.y += _g * Time.deltaTime;
 
-        _cr.Move(_v * Time.deltaTime);
+        if (!_isGrounded)
+        {
+            _cr.Move(_v * Time.deltaTime);
+        }
     }
 
     public void Jump()
@@ -108,6 +116,7 @@ public class Player_Movement
             Debug.Log("estoy en el jump");
             // Velocity is set so that player will reach desired jump height and then start falling
             _v.y = Mathf.Sqrt(-2 * _g * _jh);
+            _isGrounded = !_isGrounded;
         }
     }
 
