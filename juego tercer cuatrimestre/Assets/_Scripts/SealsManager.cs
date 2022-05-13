@@ -11,7 +11,7 @@ public class SealsManager : MonoBehaviour
     public void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
-        if (points >= 2)
+        if (points >= 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
