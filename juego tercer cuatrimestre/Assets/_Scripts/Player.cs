@@ -138,6 +138,11 @@ public class Player : Entity
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        CurrentHealth -= damage;
+    }
+
 }
 
 
