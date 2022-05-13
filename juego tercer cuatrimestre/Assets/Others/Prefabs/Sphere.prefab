@@ -809,7 +809,7 @@ MonoBehaviour:
   slider: {fileID: 1103110038}
   projectileDamage: 0
   player: {fileID: 0}
-  timeBetweenAttacks: 3
+  timeBetweenAttacks: 7
   beholder_projectile: {fileID: 3419846499986786689, guid: 303c7556a2214674cb603704c7cb08c6, type: 3}
   beholderEye: {fileID: 2229687655802855930}
   spawnAttack: {fileID: 6826902022055310594}
