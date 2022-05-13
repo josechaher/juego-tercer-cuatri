@@ -54,6 +54,8 @@ public class PendulumScript : MonoBehaviour
 	{
 		/* */
 		// Fixed deltaTime rendering at any speed with smoothing
+
+
 		float frameTime = Time.time - currentTime;
 		this.currentTime = Time.time;
 
