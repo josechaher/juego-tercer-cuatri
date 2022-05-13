@@ -4,8 +4,8 @@ using System.Collections;
 public class PendulumScript : MonoBehaviour
 {
 
-	public GameObject Pivot;
-	public GameObject Bob;
+	public GameObject pivot;
+	public GameObject ball;
 
 	public float mass = 1f;
 
@@ -29,7 +29,7 @@ public class PendulumScript : MonoBehaviour
 
 	void Start()
 	{
-		this.bobStartingPosition = this.Bob.transform.position;
+		this.bobStartingPosition = this.ball.transform.position;
 		this.bobStartingPositionSet = true;
 		this.PendulumInit();
 	}
@@ -56,9 +56,10 @@ public class PendulumScript : MonoBehaviour
 
 		float alpha = this.accumulator / this.dt;
 		Vector3 newPosition = this.currentStatePosition * alpha + this.previousStatePosition * (1f - alpha);
-		this.Bob.transform.position = newPosition;
+		this.ball.transform.position = newPosition;
 	}
 
+	// QUE HACE ESTO?
 	[ContextMenu("Reset Pendulum Position")]
 	void ResetPendulumPosition()
 	{
@@ -68,33 +69,37 @@ public class PendulumScript : MonoBehaviour
 			this.PendulumInit();
 	}
 
+	// QUE HACE ESTO?
 	[ContextMenu("Reset Pendulum Forces")]
 	void ResetPendulumForces()
 	{
+
 		this.currentVelocity = Vector3.zero;
-		this.currentStatePosition = this.Bob.transform.position;
+		this.currentStatePosition = this.ball.transform.position;
 	}
 
 	void PendulumInit()
 	{
-		this.ropeLength = Vector3.Distance(Pivot.transform.position, Bob.transform.position);
+		// Calculates distance from ball to pivot.
+		this.ropeLength = Vector3.Distance(pivot.transform.position, ball.transform.position);
 		this.ResetPendulumForces();
 	}
 
+	// QUE HACE ESTO?
 	void MoveBob(Vector3 resetBobPosition)
 	{
-		this.Bob.transform.position = resetBobPosition;
+		this.ball.transform.position = resetBobPosition;
 		this.currentStatePosition = resetBobPosition;
 	}
 
-
+	// QUE HACE ESTO?
 	Vector3 PendulumUpdate(Vector3 currentStatePosition, float deltaTime)
 	{
 		this.gravityForce = this.mass * Physics.gravity.magnitude;
 		this.gravityDirection = Physics.gravity.normalized;
 		this.currentVelocity += this.gravityDirection * this.gravityForce * deltaTime;
 
-		Vector3 pivot_p = this.Pivot.transform.position;
+		Vector3 pivot_p = this.pivot.transform.position;
 		Vector3 bob_p = this.currentStatePosition;
 
 		Vector3 auxiliaryMovementDelta = this.currentVelocity * deltaTime;
@@ -126,42 +131,44 @@ public class PendulumScript : MonoBehaviour
 		return this.GetPointOnLine(pivot_p, currentStatePosition + movementDelta, distance <= this.ropeLength ? distance : this.ropeLength);
 	}
 
+	// QUE HACE ESTO?
 	Vector3 GetPointOnLine(Vector3 start, Vector3 end, float distanceFromStart)
 	{
 		return start + (distanceFromStart * Vector3.Normalize(end - start));
 	}
 
+	//Draws pendulum path on editor
 	void OnDrawGizmos()
 	{
 		// purple
 		Gizmos.color = new Color(.5f, 0f, .5f);
-		Gizmos.DrawWireSphere(this.Pivot.transform.position, this.ropeLength);
+		Gizmos.DrawWireSphere(this.pivot.transform.position, this.ropeLength);
 
 		Gizmos.DrawWireCube(this.bobStartingPosition, new Vector3(.5f, .5f, .5f));
 
 		// Blue: Auxilary
 		Gizmos.color = new Color(.3f, .3f, 1f); // blue
 		Vector3 auxVel = .3f * this.currentVelocity;
-		Gizmos.DrawRay(this.Bob.transform.position, auxVel);
-		Gizmos.DrawSphere(this.Bob.transform.position + auxVel, .2f);
+		Gizmos.DrawRay(this.ball.transform.position, auxVel);
+		Gizmos.DrawSphere(this.ball.transform.position + auxVel, .2f);
 
 		// Yellow: Gravity
 		Gizmos.color = new Color(1f, 1f, .2f);
 		Vector3 gravity = .3f * this.gravityForce * this.gravityDirection;
-		Gizmos.DrawRay(this.Bob.transform.position, gravity);
-		Gizmos.DrawSphere(this.Bob.transform.position + gravity, .2f);
+		Gizmos.DrawRay(this.ball.transform.position, gravity);
+		Gizmos.DrawSphere(this.ball.transform.position + gravity, .2f);
 
 		// Orange: Tension
 		Gizmos.color = new Color(1f, .5f, .2f); // Orange
 		Vector3 tension = .3f * this.tensionForce * this.tensionDirection;
-		Gizmos.DrawRay(this.Bob.transform.position, tension);
-		Gizmos.DrawSphere(this.Bob.transform.position + tension, .2f);
+		Gizmos.DrawRay(this.ball.transform.position, tension);
+		Gizmos.DrawSphere(this.ball.transform.position + tension, .2f);
 
 		// Red: Resultant
 		Gizmos.color = new Color(1f, .3f, .3f); // red
 		Vector3 resultant = gravity + tension;
-		Gizmos.DrawRay(this.Bob.transform.position, resultant);
-		Gizmos.DrawSphere(this.Bob.transform.position + resultant, .2f);
+		Gizmos.DrawRay(this.ball.transform.position, resultant);
+		Gizmos.DrawSphere(this.ball.transform.position + resultant, .2f);
 
 	}
 }
