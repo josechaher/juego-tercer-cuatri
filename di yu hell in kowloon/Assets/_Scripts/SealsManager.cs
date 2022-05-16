@@ -13,7 +13,7 @@ public class SealsManager : MonoBehaviour
         GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
         if (points >= 3)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("Coming Soon");
         }
     }
 }
