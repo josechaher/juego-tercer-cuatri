@@ -150,7 +150,7 @@ public class Player : Entity
 
     private void OnDestroy()
     {
-        SceneManager.LoadScene("Level 1 - Roro");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 

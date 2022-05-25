@@ -7,6 +7,9 @@ public class SealsManager : MonoBehaviour
 {
     
     public int points;
+    Seal[] seals;
+
+    [SerializeField] AudioClip seal_acquired;
 
     public void OnGUI()
     {

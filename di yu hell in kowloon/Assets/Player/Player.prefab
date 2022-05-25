@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
+  seal_acquired: {fileID: 8300000, guid: 537b7159092f2d54190515351086bbcd, type: 3}
 --- !u!1 &214110760937905562
 GameObject:
   m_ObjectHideFlags: 0

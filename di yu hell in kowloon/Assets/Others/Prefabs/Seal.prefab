@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2156152927716542904}
   - component: {fileID: 2156152927716542855}
   - component: {fileID: 2156152927716542854}
-  - component: {fileID: 2156152927716542852}
+  - component: {fileID: 2657135902150180739}
   - component: {fileID: 2156152927716542853}
   m_Layer: 0
   m_Name: Seal
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 60}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2156152927716542852
+--- !u!114 &2657135902150180739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,9 +106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2156152927716542851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e600ba6c0909ef47a0def97559179e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4461cc67cf65a67459de42178a96cd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 40
 --- !u!82 &2156152927716542853
 AudioSource:
   m_ObjectHideFlags: 0
