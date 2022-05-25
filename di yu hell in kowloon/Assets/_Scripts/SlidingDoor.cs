@@ -29,8 +29,7 @@ public class SlidingDoor : MonoBehaviour
     {
         if (targets.Contains(target))
         {
-            targets.Remove(target);
-            Destroy(target.gameObject);
+            targets.Remove(target);            
             if (targets.Count == 0) Open();
         }
         
