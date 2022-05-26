@@ -37,7 +37,6 @@ public class Ball : MonoBehaviour
 
     Material material;
     Color ogColor;
-    float alpha = 0;
 
     Vector3 startPosition;
 
@@ -105,19 +104,6 @@ public class Ball : MonoBehaviour
 
                 charging = false;
             }
-            //emissionIntensity += chargeSpeed * 2 * Time.deltaTime;
-            //material.SetColor("_EmissionColor", emissionColor * emissionIntensity);
-            //alpha += 0.01f;
-            //material.color = Color.Lerp(new Color(0, 0, 0, 0), ogColor, 1f);
-
-
-            //transform.localScale += Vector3.one * chargeSpeed * Time.deltaTime;
-
-            //if (transform.localScale.x > 0.5f)
-            //{
-            //    transform.localScale = Vector3.one * 0.5f;
-            //    charging = false;
-            //}
         }
     }
 
@@ -128,6 +114,8 @@ public class Ball : MonoBehaviour
         transform.parent = null;
         Destroy(gameObject, 20);
         shooting = true;
+
+        transform.SetLayerRecursively("Player");
 
         speed = (charge * maxSpeed) / maxCharge;
 
