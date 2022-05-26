@@ -44,8 +44,6 @@ public class Player : Entity
 
 
     //Mano
-    [SerializeField] Material handMaterial;
-    [SerializeField] Renderer hand;
     [SerializeField] ParticleSystem handParticles;
 
     //Grounded
@@ -54,7 +52,6 @@ public class Player : Entity
     //emmissive esfera
     public bool glowing = false;
     public float glowIntensity = 0;
-    Color color;
 
     //esfera
     [SerializeField] Transform ballSpawn;
@@ -75,8 +72,7 @@ public class Player : Entity
 
     void Start()
     {
-        handMaterial = hand.GetComponent<Renderer>().material;
-        color = handMaterial.GetColor("_EmissionColor");
+
         Cursor.lockState = CursorLockMode.Locked;
         distToGround = cr.height / 2;
         SetHealth(health);
@@ -97,28 +93,32 @@ public class Player : Entity
 
             ball = Instantiate(ballPrefab, Camera.main.transform);
             ball.transform.position = ballSpawn.position;
-
             handParticles.Play();
 
             glowIntensity = 0;
-            handMaterial.EnableKeyword("_EMISSION");
             glowing = true;
             animator.SetTrigger("Charge");
+            
         }
         if (Input.GetMouseButtonUp(0))
         {
             handParticles.Stop();
             ball.GetComponent<Ball>().Shoot();
-            handMaterial.DisableKeyword("_EMISSION");
             glowing = false;
             animator.SetTrigger("Shoot");
         }
         if (glowing)
         {
             glowIntensity += 0.5f * Time.deltaTime;
-            handMaterial.SetColor("_EmissionColor", color * glowIntensity);
         }
         #endregion
+
+        // Punching
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetTrigger("Punch");
+        }
 
         //Life Bar
         slider.value = CurrentHealth / MaxHealth;

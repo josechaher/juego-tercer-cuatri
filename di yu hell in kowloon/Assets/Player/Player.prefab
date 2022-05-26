@@ -146,6 +146,7 @@ MonoBehaviour:
   isGrounded: 0
   glowing: 0
   glowIntensity: 0
+  emissiveColor: {r: 0.7490196, g: 0.68235296, b: 0, a: 0.003921569}
   ballSpawn: {fileID: 214110761401702007}
   ballPrefab: {fileID: 3009786025047870057, guid: 0e1507e33071ae54c9fbf2e901a7c7e3, type: 3}
   animator: {fileID: 214110760143329514}
