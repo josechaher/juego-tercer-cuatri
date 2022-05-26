@@ -128,9 +128,10 @@ public class Player : Entity
             Destroy(gameObject);            
         }
 
+        // Reloads level with R
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
