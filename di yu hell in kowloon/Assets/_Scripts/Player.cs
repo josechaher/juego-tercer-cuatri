@@ -131,7 +131,7 @@ public class Player : Entity
         // Reloads level with R
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Destroy(gameObject);
         }
     }
 
