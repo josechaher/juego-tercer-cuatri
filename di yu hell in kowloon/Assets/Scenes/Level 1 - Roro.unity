@@ -646,6 +646,29 @@ Transform:
   m_Father: {fileID: 2010936687}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &32699036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3293120675127932714, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+  m_PrefabInstance: {fileID: 648732277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &32699038 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6975796274969178637, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+  m_PrefabInstance: {fileID: 648732277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &32699039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32699036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e8c83d78df1864fb6ca18146d33b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 50
 --- !u!1 &36039342
 GameObject:
   m_ObjectHideFlags: 0
@@ -20402,6 +20425,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1117799422}
     - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+      propertyPath: meleeCollider
+      value: 
+      objectReference: {fileID: 32699038}
+    - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: emissiveColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -20823,6 +20850,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893968477313181525, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975796274969178637, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8047162128902323688, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}

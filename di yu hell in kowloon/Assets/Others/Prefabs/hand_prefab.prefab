@@ -5419,6 +5419,50 @@ Transform:
   m_Father: {fileID: 5112029670838727546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3407869581316593529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3887613752961620461}
+  - component: {fileID: 7077315944770785886}
+  m_Layer: 7
+  m_Name: MeleeCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3887613752961620461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407869581316593529}
+  m_LocalRotation: {x: -0.086017706, y: 0.07313461, z: 0.69528764, w: 0.70980805}
+  m_LocalPosition: {x: -0.010970718, y: -0.000056102872, z: -0.0014593787}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6910606312046820011}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -1.2, y: 12.911, z: 0}
+--- !u!65 &7077315944770785886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407869581316593529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
+  m_Center: {x: -1.1237195e-13, y: 0.00066501915, z: -7.251537e-13}
 --- !u!1 &4225995889934241041
 GameObject:
   m_ObjectHideFlags: 0
@@ -6294,6 +6338,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3363465260286917350}
+  - {fileID: 3887613752961620461}
   m_Father: {fileID: 4783888342914173061}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

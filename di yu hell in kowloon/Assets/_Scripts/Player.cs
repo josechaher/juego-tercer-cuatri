@@ -42,7 +42,6 @@ public class Player : Entity
     float distToGround;
 
 
-
     //Mano
     [SerializeField] ParticleSystem handParticles;
 
