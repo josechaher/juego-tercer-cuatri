@@ -5,18 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class SealsManager : MonoBehaviour
 {
-    
-    public int points;
-    Seal[] seals;
+    public static SealsManager Instance;
+
+    private int points = 0;
+    private int sealCount;
 
     [SerializeField] AudioClip seal_acquired;
+
+    private void Awake()
+    {
+        Instance = this;
+        sealCount = FindObjectsOfType<Seal>().Length;
+    }
+
+    private void Update()
+    {
+        if (points >= sealCount)
+        {
+            SceneManager.LoadScene("Coming Soon");
+        }
+    }
 
     public void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
-        if (points >= 3)
-        {
-            SceneManager.LoadScene("Coming Soon");
-        }
+    }
+
+    public void SealCollected(Seal seal)
+    {
+        print("SEAL COLLECTED function called");
+        Destroy(seal.gameObject);
+
+        points++;
+
+        AudioManager.Instance.Play(seal_acquired);
     }
 }

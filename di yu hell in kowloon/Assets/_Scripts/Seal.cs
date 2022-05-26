@@ -6,11 +6,13 @@ public class Seal : Collector
 {
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.GetComponent<SealsManager>() != null)
+        Player player = collision.GetComponent<Player>();
+
+        if (player)
         {
-            collision.GetComponent<SealsManager>().points++;
-            GetComponent<AudioSource>().Play();
-            Destroy(this.gameObject);
+            SealsManager.Instance.SealCollected(this);
         }
     }
+
+
 }
