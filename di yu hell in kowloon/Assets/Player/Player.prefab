@@ -140,16 +140,20 @@ MonoBehaviour:
   jumpHeight: 1
   velocity: {x: 0, y: 0, z: 0}
   gravity: -10
-  handMaterial: {fileID: 2100000, guid: 79c560758c886af499e12aa246820204, type: 2}
-  hand: {fileID: 397213341428769794}
   handParticles: {fileID: 7505615100193671136}
   isGrounded: 0
   glowing: 0
   glowIntensity: 0
-  emissiveColor: {r: 0.7490196, g: 0.68235296, b: 0, a: 0.003921569}
   ballSpawn: {fileID: 214110761401702007}
   ballPrefab: {fileID: 3009786025047870057, guid: 0e1507e33071ae54c9fbf2e901a7c7e3, type: 3}
   animator: {fileID: 214110760143329514}
+  footstep_sounds:
+  - {fileID: 8300000, guid: 0a81f492a09706643bbfcbf0dccff13a, type: 3}
+  - {fileID: 8300000, guid: 82b0ffe9d4e0e4948b593107782b9137, type: 3}
+  - {fileID: 8300000, guid: 5a2507f57d9a21e4fadbccf83db1ce65, type: 3}
+  - {fileID: 8300000, guid: 8030100a4b2fca64e86aeaacf6772fe9, type: 3}
+  jump_sound: {fileID: 8300000, guid: 3f919037fdafe0640a52c58ed82270f5, type: 3}
+  land_sound: {fileID: 8300000, guid: 6c8ab944347565a43958e6fda1d5003d, type: 3}
 --- !u!1 &214110760937905562
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,11 +678,6 @@ Transform:
 --- !u!198 &7505615100193671136 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7697181387330725811, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
-  m_PrefabInstance: {fileID: 214110761608454227}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &397213341428769794 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 539169679490073681, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
   m_PrefabInstance: {fileID: 214110761608454227}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &214110760143329514

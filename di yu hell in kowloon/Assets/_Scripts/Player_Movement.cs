@@ -16,6 +16,11 @@ public class Player_Movement
     //turn
     Vector2 _mousePosition;
     float _lookSensitivity ;
+
+    float timeBetweenFootsteps = 0.5f;
+    float timeUntilNextFoostep;
+    int numberOfFootstepSounds;
+
     
 
     //salto
@@ -43,6 +48,8 @@ public class Player_Movement
         this._isGrounded = isGrounded;
         this.debug = debug;
 
+        timeUntilNextFoostep = timeBetweenFootsteps;
+        numberOfFootstepSounds = GameAssets.Instance.footstep_sounds.Length;
     }
 
     public void MovementUpdate()
@@ -70,22 +77,43 @@ public class Player_Movement
         _moveDirection = _t.right * Input.GetAxisRaw("Horizontal")
                     + _t.forward * Input.GetAxisRaw("Vertical");
 
+        // If player is moving
         if (_moveDirection != Vector3.zero)
         {
             Debug.Log("moviendose");
             _cr.Move(_moveDirection.normalized * _moveSpeed * Time.deltaTime);
             _moveDirection = Vector3.zero;
-        }        
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) _moveSpeed *= 2;
-        if (Input.GetKeyUp(KeyCode.LeftShift)) _moveSpeed /= 2;     //esto esta rancio
+            // Footstep sounds
+            if (_isGrounded)
+            {
+                if (timeUntilNextFoostep < 0)
+                {
+                    AudioManager.Instance.Play(GameAssets.Instance.footstep_sounds[Random.Range(0, numberOfFootstepSounds)]);
+                    timeUntilNextFoostep = timeBetweenFootsteps;
+                }
+                timeUntilNextFoostep -= Time.deltaTime;
+            }
+        }
+
+        // RUN
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            timeBetweenFootsteps /= 2;
+            timeUntilNextFoostep /= 2;
+            _moveSpeed *= 2;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            timeBetweenFootsteps *= 2;
+            timeUntilNextFoostep *= 2;
+            _moveSpeed /= 2;
+        }
     }
 
     /// <summary>
     /// Rotates player and camera according to mouse movements
     /// </summary>
-    
-    
     public void Turn()
     {
         _mousePosition.x += Input.GetAxisRaw("Mouse X") * _lookSensitivity;
@@ -117,6 +145,8 @@ public class Player_Movement
             // Velocity is set so that player will reach desired jump height and then start falling
             _v.y = Mathf.Sqrt(-2 * _g * _jh);
             _isGrounded = !_isGrounded;
+
+            AudioManager.Instance.Play(GameAssets.Instance.jump_sound);
         }
     }
 
@@ -134,8 +164,12 @@ public class Player_Movement
 
             if (!hit.collider.isTrigger)
             {
-                _isGrounded = true;
-                debug.text = "Grounded";
+                if (!_isGrounded)
+                {
+                    AudioManager.Instance.Play(GameAssets.Instance.land_sound);
+                    _isGrounded = true;
+                    debug.text = "Grounded";
+                }
                 _v.y = 0;
             }          
 
