@@ -147,13 +147,6 @@ MonoBehaviour:
   ballSpawn: {fileID: 214110761401702007}
   ballPrefab: {fileID: 3009786025047870057, guid: 0e1507e33071ae54c9fbf2e901a7c7e3, type: 3}
   animator: {fileID: 214110760143329514}
-  footstep_sounds:
-  - {fileID: 8300000, guid: 0a81f492a09706643bbfcbf0dccff13a, type: 3}
-  - {fileID: 8300000, guid: 82b0ffe9d4e0e4948b593107782b9137, type: 3}
-  - {fileID: 8300000, guid: 5a2507f57d9a21e4fadbccf83db1ce65, type: 3}
-  - {fileID: 8300000, guid: 8030100a4b2fca64e86aeaacf6772fe9, type: 3}
-  jump_sound: {fileID: 8300000, guid: 3f919037fdafe0640a52c58ed82270f5, type: 3}
-  land_sound: {fileID: 8300000, guid: 6c8ab944347565a43958e6fda1d5003d, type: 3}
 --- !u!1 &214110760937905562
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,11 +346,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 197131763017274722, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9486621
       objectReference: {fileID: 0}
     - target: {fileID: 197131763017274722, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.31629148
       objectReference: {fileID: 0}
     - target: {fileID: 197131763017274722, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -365,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197131763017274722, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.000000042408498
       objectReference: {fileID: 0}
     - target: {fileID: 197131763017274722, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -603,6 +596,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077315944770785886, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7697181387330725811, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -680,6 +677,24 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7697181387330725811, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
   m_PrefabInstance: {fileID: 214110761608454227}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3293120675127932714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3407869581316593529, guid: e6486178e6a4db9428923c776dbaaf7f, type: 3}
+  m_PrefabInstance: {fileID: 214110761608454227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1749030444895141911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293120675127932714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e8c83d78df1864fb6ca18146d33b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 50
 --- !u!95 &214110760143329514
 Animator:
   serializedVersion: 3
