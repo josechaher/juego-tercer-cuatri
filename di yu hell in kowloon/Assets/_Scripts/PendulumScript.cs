@@ -5,7 +5,7 @@ public class PendulumScript : MonoBehaviour
 {
     public Transform pivot;
     public float speed = 0.5f;
-    private Vector3 v3Pivot;  // Pivot in screen space
+    private Vector3 v3Pivot;
     private bool dragging = false;
     public float startAngle = 45.0f;
     public float endAngle = -45.0f;
