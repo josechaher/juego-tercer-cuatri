@@ -9,6 +9,8 @@ public class EnemyAi : Enemy
 
     public Transform player;
 
+    [SerializeField] Transform projectileSpawn;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
@@ -105,7 +107,7 @@ public class EnemyAi : Enemy
             animator.SetTrigger("Attack");
 
             // Shoots a projectile forwards (towards the enemy)
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             //rb.AddForce(transform.up * 2f, ForceMode.Impulse);
 

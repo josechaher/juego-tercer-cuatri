@@ -3164,10 +3164,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8368933281372475936, guid: cde754679b9f5194c9e6c58475a6b180, type: 3}
-      propertyPath: m_BaseOffset
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8711375287575134780, guid: cde754679b9f5194c9e6c58475a6b180, type: 3}
       propertyPath: m_Name
       value: Demon
@@ -13028,6 +13024,7 @@ MonoBehaviour:
   projectileDamage: 0
   agent: {fileID: 8065277743066997095}
   player: {fileID: 740113985}
+  projectileSpawn: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
