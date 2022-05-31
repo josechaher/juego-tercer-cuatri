@@ -27,10 +27,14 @@ public class EnemyAi : Enemy
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    Animator animator;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -54,7 +58,10 @@ public class EnemyAi : Enemy
         if (!walkPointSet) SearchWalkPoint();
 
         if(walkPointSet)
+        {
             agent.SetDestination(walkPoint);
+            animator.SetTrigger("Walk");
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -86,12 +93,16 @@ public class EnemyAi : Enemy
     {
         agent.SetDestination(transform.position);
 
+
+
         transform.LookAt(player);
+
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
 
         if (!alreadyAttacked)
         {
-
-            ///Attack code here
+            animator.SetTrigger("Attack");
 
             // Shoots a projectile forwards (towards the enemy)
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
