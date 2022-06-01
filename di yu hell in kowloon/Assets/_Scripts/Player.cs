@@ -146,11 +146,19 @@ public class Player : Entity
     public override void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
+        if (CurrentHealth <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
-    private void OnDestroy()
+    public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        CurrentHealth = 0;
+        if (CurrentHealth <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
 

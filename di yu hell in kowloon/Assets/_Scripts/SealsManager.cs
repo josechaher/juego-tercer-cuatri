@@ -18,14 +18,6 @@ public class SealsManager : MonoBehaviour
         sealCount = FindObjectsOfType<Seal>().Length;
     }
 
-    private void Update()
-    {
-        if (points >= sealCount)
-        {
-            SceneManager.LoadScene("Coming Soon");
-        }
-    }
-
     public void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Seals : " + points);
@@ -39,5 +31,11 @@ public class SealsManager : MonoBehaviour
         points++;
 
         AudioManager.Instance.Play(seal_acquired);
+
+        if (points >= sealCount)
+        {
+            Instance = null;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        }
     }
 }
