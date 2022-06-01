@@ -122,24 +122,10 @@ public class Player : Entity
         //Life Bar
         slider.value = CurrentHealth / MaxHealth;
 
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);            
-        }
-
         // Reloads level with R
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.tag == "Bullet")
-        {
-            CurrentHealth -= 25;
-            Destroy(hit.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
