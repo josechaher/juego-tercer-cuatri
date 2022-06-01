@@ -6,23 +6,33 @@ public class FallingPlatform : MonoBehaviour
 {
     bool isFalling = false;
     bool playerEntered = false;
-    float offsetFallTime = 2;
+    float fallTimer;
+    float fallTime = 2;
     float downSpeed = 0;
+    float resetTime = 5;
+    Vector3 initialPosition;
+
+    private void Start()
+    {
+        initialPosition = this.transform.position;
+        fallTimer = fallTime;
+    }
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Player")
             playerEntered = true;
-
     }
 
     void Update()
     {
         if (playerEntered)
         {
-            offsetFallTime -= Time.deltaTime;
-            if (offsetFallTime <=0)
+            fallTimer -= Time.deltaTime;
+            if (fallTimer <=0)
             {
+                StartCoroutine(Reset());
+                playerEntered = false;
                 isFalling = true;
             }
         }
@@ -32,5 +42,14 @@ public class FallingPlatform : MonoBehaviour
             downSpeed += Time.deltaTime/10;
             transform.position = new Vector3(transform.position.x, transform.position.y - downSpeed, transform.position.z);
         }
+    }
+
+    IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(resetTime);
+        transform.position = initialPosition;
+        playerEntered = false;
+        isFalling = false;
+        fallTimer = fallTime;
     }
 }
