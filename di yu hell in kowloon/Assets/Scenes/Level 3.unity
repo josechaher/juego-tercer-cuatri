@@ -3208,7 +3208,7 @@ GameObject:
   - component: {fileID: 1415896565}
   - component: {fileID: 1415896564}
   - component: {fileID: 1415896563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4728,7 +4728,7 @@ PrefabInstance:
     - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: cr
       value: 
-      objectReference: {fileID: 1971295695}
+      objectReference: {fileID: 0}
     - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: debug
       value: 
@@ -7854,7 +7854,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20074
+  m_Name: pb_Mesh119274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8487,11 +8487,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &1971295695 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 214110760504815386, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
-  m_PrefabInstance: {fileID: 1463919520}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1975820020
 PrefabInstance:
   m_ObjectHideFlags: 0
