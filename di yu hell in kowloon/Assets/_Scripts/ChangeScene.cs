@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    public static int currentLevelSceneIndex;
 
     public void LoadScene(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(currentLevelSceneIndex);
+    }
 }

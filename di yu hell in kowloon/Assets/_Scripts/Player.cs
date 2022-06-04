@@ -124,7 +124,10 @@ public class Player : Entity
         CurrentHealth -= damage;
         if (CurrentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ChangeScene.currentLevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Try Again");
         }
     }
 
@@ -133,7 +136,10 @@ public class Player : Entity
         CurrentHealth = 0;
         if (CurrentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            ChangeScene.currentLevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Try Again");
         }
     }
 }
