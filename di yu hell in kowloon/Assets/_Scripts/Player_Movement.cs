@@ -5,58 +5,52 @@ using UnityEngine;
 
 public class Player_Movement 
 {
-    public Text debug;
+    public Text _debug;
 
     //walk
-    Vector3 _moveDirection;
+    Vector3 moveDirection;
     float _moveSpeed ;
-    CharacterController _cr;
-    Transform _t;
+    Rigidbody _rb;
+    Transform _transform;
     
     //turn
-    Vector2 _mousePosition;
+    Vector2 mousePosition;
     float _lookSensitivity ;
 
     float timeBetweenFootsteps = 0.5f;
     float timeUntilNextFoostep;
     int numberOfFootstepSounds;
 
-    
 
     //salto
-    float _jh ; //jumpHeight
-    Vector3 _v;              //velocity
-    float _g ;//gravity
-    float _dtg; //distToGround
+    float _jumpHeight ; //jumpHeight
+    float jumpForce;
 
-    bool _isGrounded;
+    bool isGrounded;
     // Start is called before the first frame update
 
-    public Player_Movement(Vector3 moveDirection, float moveSpeed, CharacterController cr, Transform t, Vector2 mousePosition, float lookSensitivity,
-                            float jumpHeight, Vector3 velocity, float gravity, float distToGround, bool isGrounded, Text debug)
+    LayerMask _whatIsGround;
+
+    public Player_Movement(float moveSpeed, Rigidbody rb, Transform transform, float lookSensitivity,
+                            float jumpHeight, Text debug, LayerMask whatIsGround)
     {
-        _moveDirection = moveDirection;
         _moveSpeed = moveSpeed;
-        _cr = cr;
-        _t = t;
-        _mousePosition = mousePosition;
+        _rb = rb;
+        _transform = transform;
         _lookSensitivity = lookSensitivity;
-        _jh = jumpHeight;
-        _v = velocity;
-        _g = gravity;
-        _dtg = distToGround;
-        this._isGrounded = isGrounded;
-        this.debug = debug;
+        _jumpHeight = jumpHeight;
+        _debug = debug;
+        _whatIsGround = whatIsGround;
 
         timeUntilNextFoostep = timeBetweenFootsteps;
         numberOfFootstepSounds = GameAssets.Instance.footstep_sounds.Length;
+
+        // Velocity is set so that player will reach desired jump height and then start falling
+        jumpForce = Mathf.Sqrt(-2 * Physics.gravity.y * _jumpHeight);
     }
 
     public void MovementUpdate()
     {
-        //GRAVITY
-        GravityUpdate();
-
         // PLAYER ROTATION
         Turn();
 
@@ -74,18 +68,17 @@ public class Player_Movement
 
     public void Walk()
     {
-        _moveDirection = _t.right * Input.GetAxisRaw("Horizontal")
-                    + _t.forward * Input.GetAxisRaw("Vertical");
+        moveDirection = _transform.right * Input.GetAxisRaw("Horizontal")
+                    + _transform.forward * Input.GetAxisRaw("Vertical");
+
+        //_rb.velocity = _moveDirection.normalized * _moveSpeed;
+        _rb.velocity = new Vector3(moveDirection.normalized.x * _moveSpeed, _rb.velocity.y, moveDirection.normalized.z * _moveSpeed);
 
         // If player is moving
-        if (_moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero)
         {
-            Debug.Log("moviendose");
-            _cr.Move(_moveDirection.normalized * _moveSpeed * Time.deltaTime);
-            _moveDirection = Vector3.zero;
-
             // Footstep sounds
-            if (_isGrounded)
+            if (isGrounded)
             {
                 if (timeUntilNextFoostep < 0)
                 {
@@ -116,35 +109,22 @@ public class Player_Movement
     /// </summary>
     public void Turn()
     {
-        _mousePosition.x += Input.GetAxisRaw("Mouse X") * _lookSensitivity;
-        _mousePosition.x %= 360; // Snaps rotation angle back to 0 when it reaches 360 or -360 degrees
+        mousePosition.x += Input.GetAxisRaw("Mouse X") * _lookSensitivity;
+        mousePosition.x %= 360; // Snaps rotation angle back to 0 when it reaches 360 or -360 degrees
 
-        _mousePosition.y -= Input.GetAxisRaw("Mouse Y") * _lookSensitivity;
-        _mousePosition.y = Mathf.Clamp(_mousePosition.y, -90, 90); // Prevents camera from rotating past its vertical axis
+        mousePosition.y -= Input.GetAxisRaw("Mouse Y") * _lookSensitivity;
+        mousePosition.y = Mathf.Clamp(mousePosition.y, -90, 90); // Prevents camera from rotating past its vertical axis
 
-        _t.rotation = Quaternion.Euler(Vector3.up * _mousePosition.x);
-        Camera.main.transform.localRotation = Quaternion.Euler(Vector3.right * _mousePosition.y);
-    }
-
-    public void GravityUpdate()
-    {
-        _v.y += _g * Time.deltaTime;
-
-        if (!_isGrounded)
-        {
-            _cr.Move(_v * Time.deltaTime);
-        }
+        _transform.rotation = Quaternion.Euler(Vector3.up * mousePosition.x);
+        Camera.main.transform.localRotation = Quaternion.Euler(Vector3.right * mousePosition.y);
     }
 
     public void Jump()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Debug.Log("estoy en el jump");
-            // Velocity is set so that player will reach desired jump height and then start falling
-            _v.y = Mathf.Sqrt(-2 * _g * _jh);
-            _isGrounded = !_isGrounded;
+            _rb.AddForce(_transform.up * jumpForce, ForceMode.Impulse);
 
             AudioManager.Instance.Play(GameAssets.Instance.jump_sound);
         }
@@ -154,30 +134,23 @@ public class Player_Movement
     {
         RaycastHit hit;
 
-        Debug.Log("estoy en el grundcheck");
-
         // Checks Player's distance from the ground
-        if (Physics.SphereCast(_t.position, 0.5f, Vector3.down, out hit, _dtg - 0.41f))
+        if (Physics.Raycast(_transform.position - Vector3.down * 0.5f, -_transform.up, out hit, 0.6f, _whatIsGround))
         {
-            Debug.Log("estoy en el raycast");
-            // Ignore collisions in "Player" layer
-
-            if (!hit.collider.isTrigger)
+            if (!isGrounded)
             {
-                if (!_isGrounded)
-                {
-                    AudioManager.Instance.Play(GameAssets.Instance.land_sound);
-                    _isGrounded = true;
-                    debug.text = "Grounded";
-                }
-                _v.y = 0;
-            }          
-
+                AudioManager.Instance.Play(GameAssets.Instance.land_sound);
+                isGrounded = true;
+                _debug.text = "Grounded";
+            }
         }
         else
         {
-            _isGrounded = false;
-            debug.text = "Not Grounded";
+            if (isGrounded)
+            {
+                isGrounded = false;
+                _debug.text = "Not Grounded";
+            }
         }
     }
 

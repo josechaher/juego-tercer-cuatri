@@ -9,7 +9,7 @@ public class Spikes : MonoBehaviour
         Player player = other.GetComponent<Player>();
         if (player)
         {
-            Destroy(player);
+            player.Die();
         }
     }
 }

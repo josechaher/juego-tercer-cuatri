@@ -15,9 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 9c4c89679df9ef043a290470747b8e2d
   - enabled: 1
+    path: Assets/Scenes/ChoosingLevel.unity
+    guid: f371a0dc7a4a61d4fa0974d235fe4d3f
+  - enabled: 1
     path: Assets/Scenes/Level 1 - Roro.unity
     guid: 3f5cf40c777ee14438adb397a9153f32
   - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 8d81cd0e02e50f54991d4e48c96de6a3
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: c28b557425dee4c43b87fc4ccfa2e089
+  - enabled: 1
     path: Assets/Scenes/Coming Soon.unity
     guid: 618bc2cb00c78bb43af56ab522e12777
+  - enabled: 1
+    path: Assets/Scenes/Try Again.unity
+    guid: 5e579a2222297cb438bda1271992e7f9
   m_configObjects: {}

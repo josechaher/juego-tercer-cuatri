@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(CharacterController))]
+//[RequireComponent(typeof(CharacterController))]
 
 public class Player : Entity
 {
@@ -24,29 +24,18 @@ public class Player : Entity
     public Text debug;
 
     //Movimiento
-    Vector3 moveDirection;
     public float moveSpeed = 5;
-    public CharacterController cr;
+    Rigidbody rb;
 
     //turn
-    public Vector2 mousePosition;
     public float lookSensitivity = 2;
 
 
     //Salto
     [SerializeField] float jumpHeight = 5;
-    public Vector3 velocity;
-
-    [SerializeField] float gravity = -10;
-
-    float distToGround;
-
 
     //Mano
     [SerializeField] ParticleSystem handParticles;
-
-    //Grounded
-    [SerializeField] bool isGrounded;
 
     //emmissive esfera
     public bool glowing = false;
@@ -62,9 +51,11 @@ public class Player : Entity
 
     private static float health = 100;
 
+    [SerializeField] LayerMask whatIsGround;
+
     private void Awake()
     {
-        cr = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         SetHealth(health);
     }
 
@@ -73,9 +64,8 @@ public class Player : Entity
     {
 
         Cursor.lockState = CursorLockMode.Locked;
-        distToGround = cr.height / 2;
         SetHealth(health);
-        _move = new Player_Movement(moveDirection, moveSpeed, cr, transform, mousePosition, lookSensitivity, jumpHeight, velocity, gravity, distToGround, isGrounded, debug);
+        _move = new Player_Movement(moveSpeed, rb, transform, lookSensitivity, jumpHeight, debug, whatIsGround);
     }
 
     // ArtificialUpdate is called on Entity's update function
@@ -122,35 +112,35 @@ public class Player : Entity
         //Life Bar
         slider.value = CurrentHealth / MaxHealth;
 
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);            
-        }
-
         // Reloads level with R
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.tag == "Bullet")
-        {
-            CurrentHealth -= 25;
-            Destroy(hit.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
     public override void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
+        if (CurrentHealth <= 0)
+        {
+            ChangeScene.currentLevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Try Again");
+        }
     }
 
-    private void OnDestroy()
+    public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        CurrentHealth = 0;
+        if (CurrentHealth <= 0)
+        {
+            ChangeScene.currentLevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Try Again");
+        }
     }
 }
 
