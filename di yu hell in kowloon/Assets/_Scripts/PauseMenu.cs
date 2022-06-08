@@ -29,9 +29,6 @@ public class PauseMenu : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
-            /*transform.Translate(x, y, 0);
-            transform.Translate(x * Time.deltaTime, y * Time.deltaTime, 0);*/
         }
     }
 
