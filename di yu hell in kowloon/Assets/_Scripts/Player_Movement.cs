@@ -52,7 +52,10 @@ public class Player_Movement
     public void MovementUpdate()
     {
         // PLAYER ROTATION
-        Turn();
+        if (Time.timeScale != 0)
+        {
+            Turn();
+        }
 
         // PLAYER WALK
         Walk();
