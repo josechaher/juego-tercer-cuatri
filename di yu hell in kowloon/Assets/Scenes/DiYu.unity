@@ -2477,8 +2477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -58}
-  m_SizeDelta: {x: 295.2742, y: 190.0055}
+  m_AnchoredPosition: {x: -5.2369, y: -58}
+  m_SizeDelta: {x: 338.8694, y: 190.0055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527035086
 MonoBehaviour:
@@ -2515,10 +2515,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD Movement
 
-    E Button - Punch
+    Mouse Right Button - Punch
 
-    Mouse Left Click - Shoot Chi
-    Ball
+    Mouse Left Button -
+    Shoot Chi Ball
 
     Space - Jump
 

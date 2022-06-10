@@ -104,7 +104,7 @@ public class Player : Entity
 
         // Punching
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             animator.SetTrigger("Punch");
         }
