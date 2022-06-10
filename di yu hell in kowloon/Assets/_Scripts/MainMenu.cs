@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject PlayUI;
-
     public GameObject MainMenuUI;
     
     public GameObject InstructionsUI;
