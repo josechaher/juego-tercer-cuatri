@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/DiYu.unity
     guid: 5ed10d02724223240bfea0ecb7a99fad
   - enabled: 1
-    path: Assets/Scenes/Instructions.unity
+    path: Assets/Scenes/ExtraScenes/Instructions.unity
     guid: d65c3c15ff00b184d9a32e7cb10cacc6
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
+    path: Assets/Scenes/ExtraScenes/Credits.unity
     guid: 9c4c89679df9ef043a290470747b8e2d
   - enabled: 1
-    path: Assets/Scenes/ChoosingLevel.unity
+    path: Assets/Scenes/ExtraScenes/ChoosingLevel.unity
     guid: f371a0dc7a4a61d4fa0974d235fe4d3f
   - enabled: 1
     path: Assets/Scenes/Level 1 - Roro.unity
