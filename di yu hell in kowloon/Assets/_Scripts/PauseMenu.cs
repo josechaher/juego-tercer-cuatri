@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         OptionsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        print("Resume");
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -56,12 +57,14 @@ public class PauseMenu : MonoBehaviour
         OptionsMenuUI.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        print("Pause");
 
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void Options()
     {
+        print("Options");
         PauseMenuUI.SetActive(false);
         OptionsMenuUI.SetActive(true);
     }
