@@ -18,7 +18,7 @@ public class Beholder_Projectile : MonoBehaviour
     private void Update()
     {
         transform.LookAt(player);
-        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime*4);
         
     }
 
