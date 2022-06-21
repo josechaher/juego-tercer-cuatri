@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 360344912}
   - component: {fileID: 360344911}
   - component: {fileID: 360344910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,9 +1525,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 2059488249}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 04000000
+  m_SelectedEdges:
+  - a: 16
+    b: 17
+  - a: 18
+    b: 16
+  - a: 17
+    b: 19
+  - a: 19
+    b: 18
+  m_SelectedVertices: 10000000110000001200000013000000
 --- !u!4 &360344914
 Transform:
   m_ObjectHideFlags: 0
@@ -8846,7 +8854,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19154
+  m_Name: pb_Mesh212726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
