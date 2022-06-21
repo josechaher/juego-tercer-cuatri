@@ -29,10 +29,13 @@ public class Beholder : Enemy
 
     private void Update()
     {
-
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (playerInAttackRange)
             AttackPlayer();
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Congrats");
+        }
     }
 
     private void AttackPlayer()
