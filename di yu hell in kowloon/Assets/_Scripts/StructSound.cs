@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StructSound
+[System.Serializable]
+public struct StructSound
 {
     public AudioClip audio;
     public bool loop;
