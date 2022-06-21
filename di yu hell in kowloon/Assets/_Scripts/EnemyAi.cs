@@ -80,9 +80,15 @@ public class EnemyAi : Enemy
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
         // Check if there is ground below walkpoint before confirming walkpoint
+
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
-            walkPointSet = true;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(walkPoint, out hit, 1f, NavMesh.AllAreas))
+            {
+                agent.SetDestination(hit.position);
+                walkPointSet = true;
+            }
         }
     }
 
