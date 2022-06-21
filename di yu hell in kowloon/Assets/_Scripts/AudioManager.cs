@@ -14,8 +14,17 @@ public class AudioManager : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
     }
 
-    public void Play(AudioClip clip) 
+    public void Play(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
     }
+
+    public enum TypesSound
+    {
+        background,
+        walk,
+        seals,
+    }
+
+    public StructSound[] sound;
 }
