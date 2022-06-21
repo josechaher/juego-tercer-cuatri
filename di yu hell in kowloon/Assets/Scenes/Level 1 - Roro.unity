@@ -30331,6 +30331,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 768305595}
     m_Modifications:
+    - target: {fileID: 1782936842813471116, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2859557100411201164, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
       propertyPath: m_Name
       value: Police Car  (2)
@@ -30378,6 +30382,22 @@ PrefabInstance:
     - target: {fileID: 3234957431000071222, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -166.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725784204170323454, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7057558674222294498, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505965599841320050, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9099115892066244298, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925f76874ab0be04f86973c464e73d98, type: 3}
@@ -40751,7 +40771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602127220429645251, guid: 735f357a472fb884f9632cf761dca206, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.8
+      value: 14.79
       objectReference: {fileID: 0}
     - target: {fileID: 3602127220429645251, guid: 735f357a472fb884f9632cf761dca206, type: 3}
       propertyPath: m_LocalPosition.z
