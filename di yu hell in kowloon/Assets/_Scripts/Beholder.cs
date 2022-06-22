@@ -64,9 +64,21 @@ public class Beholder : Enemy
 
         if (CurrentHealth<=0)
         {
-            SceneManager.LoadScene("Congrats");
-            Cursor.lockState = CursorLockMode.None;
+            Explode();
         }
+    }
+
+    IEnumerator Explode()
+    {
+        // Spawnear particulas
+
+
+        //
+
+        yield return new WaitForSeconds(5);
+
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("Congrats");
     }
 
     private void ResetAttack()
