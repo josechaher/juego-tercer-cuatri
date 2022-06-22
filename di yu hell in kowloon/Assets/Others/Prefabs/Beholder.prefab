@@ -851,3 +851,4 @@ MonoBehaviour:
     m_Bits: 8
   attackRange: 25
   playerInAttackRange: 0
+  explodeParticles: {fileID: 3221682207950808378, guid: f1a3e483ba521d649b5c1bd44085c0ae, type: 3}

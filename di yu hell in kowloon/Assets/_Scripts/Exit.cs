@@ -5,7 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
-   public void QuitGame()
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+    public void QuitGame()
     {
         Application.Quit();
     }

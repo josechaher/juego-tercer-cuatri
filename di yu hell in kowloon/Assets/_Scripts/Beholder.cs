@@ -21,6 +21,8 @@ public class Beholder : Enemy
 
     private static float health = 200;
 
+    public ParticleSystem explodeParticles;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -58,27 +60,10 @@ public class Beholder : Enemy
         }
     }
 
-    public override void TakeDamage(float damage)
+    private void OnDestroy()
     {
-        base.TakeDamage(damage);
-
-        if (CurrentHealth<=0)
-        {
-            Explode();
-        }
-    }
-
-    IEnumerator Explode()
-    {
-        // Spawnear particulas
-
-
-        //
-
-        yield return new WaitForSeconds(5);
-
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene("Congrats");
+        Instantiate(explodeParticles, transform.position, Quaternion.identity, null);
+        FindObjectOfType<Level3Events>().BeholderDestroyed();
     }
 
     private void ResetAttack()

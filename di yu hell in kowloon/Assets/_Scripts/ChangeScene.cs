@@ -34,4 +34,9 @@ public class ChangeScene : MonoBehaviour
             LoadScene("Level 3");
         }
     }
+
+    public static IEnumerator DelaySceneChange(string nameScene, float seconds) {
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(nameScene);
+    }
 }
