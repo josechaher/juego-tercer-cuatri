@@ -134,6 +134,8 @@ public class Ball : MonoBehaviour
         if (enemy)
         {
             enemy.TakeDamage((charge * maxDamage) / maxCharge);
+            Instantiate(enemy.bloodParticles, transform.position, Quaternion.identity, enemy.transform);
+            Debug.Log("Llamando particulas.");
         }
 
         if (bounces <= 0)

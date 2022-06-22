@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public abstract class Enemy : Entity
 {
     [SerializeField] private Slider slider;
+    public ParticleSystem bloodParticles;
 
     // ArtificialUpdate is called on Entity's update function
     protected override void ArtificialUpdate()

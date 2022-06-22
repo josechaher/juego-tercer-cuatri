@@ -2593,6 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8368933282200052732}
+  bloodParticles: {fileID: 240139376104902118, guid: 1abc1958167ceb041b55214d57d933ce, type: 3}
 --- !u!195 &8368933281372475936
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2628,6 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+  bloodParticles: {fileID: 240139376104902118, guid: 1abc1958167ceb041b55214d57d933ce, type: 3}
   agent: {fileID: 8368933281372475936}
   player: {fileID: 0}
   projectileSpawn: {fileID: 1652525918}
