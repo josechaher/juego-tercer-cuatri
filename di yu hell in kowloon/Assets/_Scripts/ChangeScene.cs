@@ -16,4 +16,22 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(currentLevelSceneIndex);
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            LoadScene("Level 1 - Roro");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            LoadScene("Level 2");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            LoadScene("Level 3");
+        }
+    }
 }
