@@ -21,8 +21,6 @@ public class Beholder : Enemy
 
     private static float health = 200;
 
-    public bool isAllEnemiesDied;
-
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -34,22 +32,6 @@ public class Beholder : Enemy
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (playerInAttackRange)
             AttackPlayer();
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (enemies.Length == 0 && isAllEnemiesDied == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            if (enemies[i] != null && isAllEnemiesDied == false)
-            {
-                isAllEnemiesDied = false;
-                // Debug.Log("There are a " + enemies.Length + " enemy alive =(");
-            }
-        }
     }
 
     private void AttackPlayer()
@@ -73,6 +55,17 @@ public class Beholder : Enemy
             Instantiate(beholder_projectile, spawnAttack3.position, Quaternion.identity);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+
+        if (CurrentHealth<=0)
+        {
+            SceneManager.LoadScene("Congrats");
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
