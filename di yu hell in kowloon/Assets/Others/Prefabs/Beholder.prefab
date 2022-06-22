@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7318322427562940411}
-  projectileDamage: 0
+  bloodParticles: {fileID: 240139376104902118, guid: 1abc1958167ceb041b55214d57d933ce, type: 3}
   player: {fileID: 0}
   timeBetweenAttacks: 7
   beholder_projectile: {fileID: 3419846499986786689, guid: 303c7556a2214674cb603704c7cb08c6, type: 3}
