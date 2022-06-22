@@ -2593,7 +2593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 8368933282200052732}
-  projectileDamage: 25
 --- !u!195 &8368933281372475936
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2603,7 +2602,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8711375287575134780}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2629,7 +2628,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  projectileDamage: 0
   agent: {fileID: 8368933281372475936}
   player: {fileID: 0}
   projectileSpawn: {fileID: 1652525918}
