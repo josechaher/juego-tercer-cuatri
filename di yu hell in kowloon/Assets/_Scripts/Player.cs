@@ -111,9 +111,6 @@ public class Player : Entity
             animator.SetTrigger("Punch");
         }
 
-        //Life Bar
-        slider.value = CurrentHealth / MaxHealth;
-
         // Reloads level with R
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -131,6 +128,9 @@ public class Player : Entity
         if (!godMode)
         {
             CurrentHealth -= damage;
+
+            //Life Bar
+            slider.value = CurrentHealth / MaxHealth;
         }
 
         if (CurrentHealth <= 0)
