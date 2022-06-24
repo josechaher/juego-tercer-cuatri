@@ -53,6 +53,8 @@ public class Player : Entity
 
     [SerializeField] LayerMask whatIsGround;
 
+    private bool godMode = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -117,11 +119,20 @@ public class Player : Entity
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            godMode = !godMode;
+        }
     }
 
     public override void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        if (!godMode)
+        {
+            CurrentHealth -= damage;
+        }
+
         if (CurrentHealth <= 0)
         {
             ChangeScene.currentLevelSceneIndex = SceneManager.GetActiveScene().buildIndex;
