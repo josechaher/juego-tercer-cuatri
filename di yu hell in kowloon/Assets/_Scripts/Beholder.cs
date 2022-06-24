@@ -11,7 +11,6 @@ public class Beholder : Enemy
     bool alreadyAttacked;
     public GameObject beholder_projectile;
 
-    public Transform beholderEye;
     public Transform spawnAttack, spawnAttack1, spawnAttack2, spawnAttack3;
 
     public LayerMask whatIsPlayer;
@@ -76,4 +75,5 @@ public class Beholder : Enemy
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
 }
