@@ -7,7 +7,7 @@ public class Delegate : MonoBehaviour
     public delegate void Contact();
     public event Contact OnContact;
 
-    private void OnColliderEnter(Collider other)
+    private void onCollisionEnter(Collision Player)
     {
         if (OnContact != null)
             OnContact();
