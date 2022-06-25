@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public Delegate doorSwitch;
+    public DoorSwitch doorSwitch;
+
+    [SerializeField] float speed = 5;
+    [SerializeField] float height = 20;
 
     void Start()
     {
@@ -13,7 +16,18 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
-        transform.Translate(Vector3.up * 3f);
+        StartCoroutine(Slide());
+    }
+
+    IEnumerator Slide()
+    {
+        float distanceMoved = 0;
+        while (distanceMoved < height)
+        {
+            transform.position += -Vector3.up * speed * Time.deltaTime;
+            distanceMoved += speed * Time.deltaTime;
+            yield return null;
+        }
     }
 
     private void OnDisable()
