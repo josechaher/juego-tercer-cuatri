@@ -43,7 +43,7 @@ public class Player_Movement
         _whatIsGround = whatIsGround;
 
         timeUntilNextFoostep = timeBetweenFootsteps;
-        numberOfFootstepSounds = GameAssets.Instance.footstep_sounds.Length;
+        numberOfFootstepSounds = AudioManager.Instance._sounds["footsteps_sfx"].audio.Length;
 
         // Velocity is set so that player will reach desired jump height and then start falling
         jumpForce = Mathf.Sqrt(-2 * Physics.gravity.y * _jumpHeight);
@@ -85,7 +85,7 @@ public class Player_Movement
             {
                 if (timeUntilNextFoostep < 0)
                 {
-                    AudioManager.Instance.Play(GameAssets.Instance.footstep_sounds[Random.Range(0, numberOfFootstepSounds)]);
+                    AudioManager.Instance.Play("footsteps_sfx",Random.Range(0,numberOfFootstepSounds));
                     timeUntilNextFoostep = timeBetweenFootsteps;
                 }
                 timeUntilNextFoostep -= Time.deltaTime;
@@ -129,7 +129,7 @@ public class Player_Movement
         {
             _rb.AddForce(_transform.up * jumpForce, ForceMode.Impulse);
 
-            AudioManager.Instance.Play(GameAssets.Instance.jump_sound);
+            AudioManager.Instance.Play("jump_sfx");
         }
     }
 
@@ -142,7 +142,7 @@ public class Player_Movement
         {
             if (!isGrounded)
             {
-                AudioManager.Instance.Play(GameAssets.Instance.land_sound);
+                AudioManager.Instance.Play("land_sfx");
                 isGrounded = true;
                 _debug.text = "Grounded";
             }

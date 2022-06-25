@@ -10,8 +10,6 @@ public class SealsManager : MonoBehaviour
     private int points = 0;
     private int sealCount;
 
-    [SerializeField] AudioClip seal_acquired;
-
     private void Awake()
     {
         Instance = this;
@@ -25,12 +23,11 @@ public class SealsManager : MonoBehaviour
 
     public void SealCollected(Seal seal)
     {
-        print("SEAL COLLECTED function called");
         Destroy(seal.gameObject);
 
         points++;
 
-        AudioManager.Instance.Play(seal_acquired);
+        AudioManager.Instance.Play("seal_collected");
 
         if (points >= sealCount)
         {
