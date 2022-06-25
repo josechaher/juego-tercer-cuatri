@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAi : Enemy
+public class Demon : Enemy
 {
     public NavMeshAgent agent;
 
@@ -13,7 +13,7 @@ public class EnemyAi : Enemy
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public float health;
+    private float health = 75;
 
     //patrol
     public Vector3 walkPoint;
@@ -37,10 +37,13 @@ public class EnemyAi : Enemy
         agent = GetComponent<NavMeshAgent>();
 
         animator = GetComponent<Animator>();
+        SetHealth(health);
     }
 
-    private void Update()
+    protected override void ArtificialUpdate()
     {
+        base.ArtificialUpdate();
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -52,7 +55,6 @@ public class EnemyAi : Enemy
 
         // If player is in range, attack
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-
     }
 
     private void Patroling()

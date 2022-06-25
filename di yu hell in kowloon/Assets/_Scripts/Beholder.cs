@@ -18,7 +18,7 @@ public class Beholder : Enemy
     public float attackRange;
     public bool playerInAttackRange;
 
-    private static float health = 200;
+    private float health = 200;
 
     public ParticleSystem explodeParticles;
 

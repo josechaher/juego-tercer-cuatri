@@ -2539,7 +2539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8335834189768693894}
   - component: {fileID: 8711375287575134781}
-  - component: {fileID: 8368933281372475939}
   - component: {fileID: 8368933281372475936}
   - component: {fileID: 8368933281372475937}
   - component: {fileID: 4402989604751578559}
@@ -2580,20 +2579,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.43838271, y: 2, z: 0.3838466}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8368933281372475939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8711375287575134780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb888420ac00ebd439ccf3a816a23ed1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 8368933282200052732}
-  bloodParticles: {fileID: 240139376104902118, guid: 1abc1958167ceb041b55214d57d933ce, type: 3}
 --- !u!195 &8368933281372475936
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2628,7 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585a70e22b3616c48b1c11ede6271433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 8368933282200052732}
   bloodParticles: {fileID: 240139376104902118, guid: 1abc1958167ceb041b55214d57d933ce, type: 3}
   agent: {fileID: 8368933281372475936}
   player: {fileID: 0}
@@ -2639,7 +2624,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  health: 100
   walkPoint: {x: 5, y: 0, z: 0}
   walkPointRange: 10
   timeBetweenAttacks: 3
