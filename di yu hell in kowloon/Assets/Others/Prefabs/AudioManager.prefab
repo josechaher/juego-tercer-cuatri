@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8087680455518804460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8087680455518804451}
+  - component: {fileID: 8087680455518804450}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8087680455518804451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087680455518804460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8087680455518804450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087680455518804460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc7098a5cf0e454b8b1b2057056d017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+  - name: game_theme
+    audio:
+    - {fileID: 8300000, guid: cd5bac801e750c64aba2b3bdd9de8210, type: 3}
+    loop: 1
+    type: 0
+  - name: boss_theme
+    audio:
+    - {fileID: 8300000, guid: d9f413ccd23fcb54388549c8d1a1f218, type: 3}
+    loop: 1
+    type: 0
+  - name: footsteps_sfx
+    audio:
+    - {fileID: 8300000, guid: 0a81f492a09706643bbfcbf0dccff13a, type: 3}
+    - {fileID: 8300000, guid: 82b0ffe9d4e0e4948b593107782b9137, type: 3}
+    - {fileID: 8300000, guid: 5a2507f57d9a21e4fadbccf83db1ce65, type: 3}
+    - {fileID: 8300000, guid: 8030100a4b2fca64e86aeaacf6772fe9, type: 3}
+    loop: 0
+    type: 1
+  - name: jump_sfx
+    audio:
+    - {fileID: 8300000, guid: 3f919037fdafe0640a52c58ed82270f5, type: 3}
+    loop: 0
+    type: 1
+  - name: land_sfx
+    audio:
+    - {fileID: 8300000, guid: 6c8ab944347565a43958e6fda1d5003d, type: 3}
+    loop: 0
+    type: 1
+  - name: seal_collected
+    audio:
+    - {fileID: 8300000, guid: 537b7159092f2d54190515351086bbcd, type: 3}
+    loop: 0
+    type: 2
+  - name: seal_continuous
+    audio:
+    - {fileID: 8300000, guid: c0dfaf33e607871418ca64f5393f9ec2, type: 3}
+    loop: 1
+    type: 2
+  - name: sliding_door
+    audio:
+    - {fileID: 8300000, guid: 7d222f3ba06578d45b3d14898fc8b34c, type: 3}
+    loop: 0
+    type: 2
+  - name: target_hit
+    audio:
+    - {fileID: 8300000, guid: 6b002267cfe6e2745a078a7d8282573a, type: 3}
+    loop: 0
+    type: 2
+  - name: level_completed
+    audio:
+    - {fileID: 8300000, guid: d38bf3b86fc33a64a8277b83f0aa8e29, type: 3}
+    loop: 0
+    type: 0
