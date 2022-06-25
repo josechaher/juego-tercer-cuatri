@@ -15,6 +15,7 @@ public class DoorSwitch : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        OnContact = null;
+        if (OnContact != null)
+            OnContact();
     }
 }

@@ -16,22 +16,26 @@ public class Door : MonoBehaviour
 
     private void Open()
     {
-        StartCoroutine(Slide());
+        StartCoroutine(Slide(-Vector3.up));
+        doorSwitch.OnContact -= Open;
+        doorSwitch.OnContact += Close;
     }
 
-    IEnumerator Slide()
+    private void Close()
+    {
+        StartCoroutine(Slide(Vector3.up));
+        doorSwitch.OnContact -= Close;
+        doorSwitch.OnContact += Open;
+    }
+
+    IEnumerator Slide(Vector3 slideDirection)
     {
         float distanceMoved = 0;
         while (distanceMoved < height)
         {
-            transform.position += -Vector3.up * speed * Time.deltaTime;
+            transform.position += slideDirection * speed * Time.deltaTime;
             distanceMoved += speed * Time.deltaTime;
             yield return null;
         }
-    }
-
-    private void OnDisable()
-    {
-        doorSwitch.OnContact -= Open;
     }
 }
