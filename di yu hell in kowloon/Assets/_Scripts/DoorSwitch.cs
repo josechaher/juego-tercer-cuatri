@@ -9,13 +9,15 @@ public class DoorSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (OnContact != null)
+        Player player = other.GetComponent<Player>();
+        if (OnContact != null && player)
             OnContact();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (OnContact != null)
+        Player player = other.GetComponent<Player>();
+        if (OnContact != null && player)
             OnContact();
     }
 }
