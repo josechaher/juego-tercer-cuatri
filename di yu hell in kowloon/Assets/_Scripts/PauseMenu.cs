@@ -12,17 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject OptionsMenuUI;
 
-    public Slider slider;
-
-    public float sliderValue;
-
     public Image imageMute;
-
-    private void Start()
-    {
-        slider.value = PlayerPrefs.GetFloat("AudioVolume", 0.5f);
-        AudioListener.volume = slider.value;
-    }
 
     void Update()
     {

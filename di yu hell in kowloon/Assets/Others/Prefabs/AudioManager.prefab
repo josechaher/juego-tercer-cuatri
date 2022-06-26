@@ -97,3 +97,4 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d38bf3b86fc33a64a8277b83f0aa8e29, type: 3}
     loop: 0
     type: 0
+  volumeSlider: {fileID: 0}

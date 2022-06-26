@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,12 +10,21 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
     public StructSound[] sound;
 
+    [SerializeField] Slider volumeSlider;
+
     public Dictionary<string, StructSound> _sounds = new Dictionary<string, StructSound>();
 
     private void Awake()
     {
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+        {
+            PlayerPrefs.SetFloat("MasterVolume", 0.2f);
+        }
+
+        volumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        AudioListener.volume = volumeSlider.value;
+
         Instance = this;
-        audioSource = gameObject.AddComponent<AudioSource>();
 
         foreach (var item in sound)
         {
@@ -54,4 +64,9 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void changeVolume()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", volumeSlider.value);
+        AudioListener.volume = volumeSlider.value;
+    }
 }

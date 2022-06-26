@@ -31489,6 +31489,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &839759055 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2450927277979502657, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
+  m_PrefabInstance: {fileID: 2450927277632498687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &856453473
 GameObject:
   m_ObjectHideFlags: 0
@@ -32253,7 +32264,7 @@ Transform:
   - {fileID: 1769285764}
   - {fileID: 1834108840}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1003332561
 PrefabInstance:
@@ -32379,6 +32390,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.9117746, y: 1.2900153, z: 1.9704742}
   m_Center: {x: -0.13042688, y: 0.66166097, z: -1.942318}
+--- !u!114 &1006724699 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+  m_PrefabInstance: {fileID: 8087680456277040715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc7098a5cf0e454b8b1b2057056d017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1006853931
 GameObject:
   m_ObjectHideFlags: 0
@@ -40936,7 +40958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450927277297810736, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2450927277297810736, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
       propertyPath: m_AnchorMax.x
@@ -41013,6 +41035,14 @@ PrefabInstance:
     - target: {fileID: 2450927277297810741, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2450927277979502657, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1006724699}
+    - target: {fileID: 2450927277979502657, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeVolume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e6207fd2fcb5444d87b7e3a905c7f15, type: 3}
@@ -45833,6 +45863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 995672505}
     m_Modifications:
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 839759055}
     - target: {fileID: 8087680455518804451, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
       propertyPath: m_RootOrder
       value: 1
