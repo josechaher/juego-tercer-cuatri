@@ -33331,6 +33331,26 @@ PrefabInstance:
       propertyPath: volumeSlider
       value: 
       objectReference: {fileID: 839759055}
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: sound.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: sound.Array.data[7].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: sound.Array.data[10].name
+      value: level_completed
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: sound.Array.data[10].clip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087680455518804450, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
+      propertyPath: sound.Array.data[10].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d38bf3b86fc33a64a8277b83f0aa8e29, type: 3}
     - target: {fileID: 8087680455518804451, guid: d4faeb052a2eb83438388567a5d45895, type: 3}
       propertyPath: m_RootOrder
       value: 1
