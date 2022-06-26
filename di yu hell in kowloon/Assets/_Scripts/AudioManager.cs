@@ -12,10 +12,15 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] Slider volumeSlider;
 
+    [SerializeField][Range(0, 1)]
+    private float musicVolume = 0.5f;
+
     public Dictionary<string, StructSound> _sounds = new Dictionary<string, StructSound>();
 
     private void Awake()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         if (!PlayerPrefs.HasKey("MasterVolume"))
         {
             PlayerPrefs.SetFloat("MasterVolume", 0.2f);
@@ -40,10 +45,24 @@ public class AudioManager : MonoBehaviour
             if (_sounds[name].type == TypesSound.music)
                 PlayMusic(name, n);
             else
-                audioSource.PlayOneShot(_sounds[name].audio[n]);
+                audioSource.PlayOneShot(_sounds[name].clip[n]);
 
         }
     }
+
+    public void Play(string name, Transform transform, int n = 0)
+    {
+        if (_sounds.ContainsKey(name))
+        {
+            AudioSource audioSource = transform.gameObject.AddComponent<AudioSource>();
+
+            StructSound sound = _sounds[name];
+            audioSource.clip = sound.clip[n];
+            audioSource.loop = sound.loop;
+            audioSource.spatialBlend = 1;
+            audioSource.Play();
+        }
+    } 
 
     public enum TypesSound
     {
@@ -57,9 +76,10 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource musicSource = gameObject.AddComponent<AudioSource>();
 
-        musicSource.clip = _sounds[name].audio[n];
-
-        musicSource.loop = _sounds[name].loop;
+        StructSound sound = _sounds[name];
+        musicSource.clip = sound.clip[n];
+        musicSource.loop = sound.loop;
+        musicSource.volume = musicVolume;
 
         musicSource.Play();
     }

@@ -43,7 +43,7 @@ public class Player_Movement
         _whatIsGround = whatIsGround;
 
         timeUntilNextFoostep = timeBetweenFootsteps;
-        numberOfFootstepSounds = AudioManager.Instance._sounds["footsteps_sfx"].audio.Length;
+        numberOfFootstepSounds = AudioManager.Instance._sounds["footsteps_sfx"].clip.Length;
 
         // Velocity is set so that player will reach desired jump height and then start falling
         jumpForce = Mathf.Sqrt(-2 * Physics.gravity.y * _jumpHeight);

@@ -6,7 +6,7 @@ using UnityEngine;
 public struct StructSound
 {
     public string name;
-    public AudioClip[] audio;
+    public AudioClip[] clip;
     public bool loop;
     public AudioManager.TypesSound type;
   

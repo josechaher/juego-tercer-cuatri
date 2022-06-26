@@ -45,17 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - name: game_theme
-    audio:
+    clip:
     - {fileID: 8300000, guid: cd5bac801e750c64aba2b3bdd9de8210, type: 3}
     loop: 1
     type: 3
   - name: boss_theme
-    audio:
+    clip:
     - {fileID: 8300000, guid: d9f413ccd23fcb54388549c8d1a1f218, type: 3}
     loop: 1
     type: 3
   - name: footsteps_sfx
-    audio:
+    clip:
     - {fileID: 8300000, guid: 0a81f492a09706643bbfcbf0dccff13a, type: 3}
     - {fileID: 8300000, guid: 82b0ffe9d4e0e4948b593107782b9137, type: 3}
     - {fileID: 8300000, guid: 5a2507f57d9a21e4fadbccf83db1ce65, type: 3}
@@ -63,38 +63,39 @@ MonoBehaviour:
     loop: 0
     type: 1
   - name: jump_sfx
-    audio:
+    clip:
     - {fileID: 8300000, guid: 3f919037fdafe0640a52c58ed82270f5, type: 3}
     loop: 0
     type: 1
   - name: land_sfx
-    audio:
+    clip:
     - {fileID: 8300000, guid: 6c8ab944347565a43958e6fda1d5003d, type: 3}
     loop: 0
     type: 1
   - name: seal_collected
-    audio:
+    clip:
     - {fileID: 8300000, guid: 537b7159092f2d54190515351086bbcd, type: 3}
     loop: 0
     type: 2
   - name: seal_continuous
-    audio:
+    clip:
     - {fileID: 8300000, guid: c0dfaf33e607871418ca64f5393f9ec2, type: 3}
     loop: 1
     type: 2
   - name: sliding_door
-    audio:
+    clip:
     - {fileID: 8300000, guid: 7d222f3ba06578d45b3d14898fc8b34c, type: 3}
     loop: 0
     type: 2
   - name: target_hit
-    audio:
+    clip:
     - {fileID: 8300000, guid: 6b002267cfe6e2745a078a7d8282573a, type: 3}
     loop: 0
     type: 2
   - name: level_completed
-    audio:
+    clip:
     - {fileID: 8300000, guid: d38bf3b86fc33a64a8277b83f0aa8e29, type: 3}
     loop: 0
     type: 0
   volumeSlider: {fileID: 0}
+  musicVolume: 0.5
