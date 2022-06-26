@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8087680455518804460}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -48,12 +48,12 @@ MonoBehaviour:
     audio:
     - {fileID: 8300000, guid: cd5bac801e750c64aba2b3bdd9de8210, type: 3}
     loop: 1
-    type: 0
+    type: 3
   - name: boss_theme
     audio:
     - {fileID: 8300000, guid: d9f413ccd23fcb54388549c8d1a1f218, type: 3}
     loop: 1
-    type: 0
+    type: 3
   - name: footsteps_sfx
     audio:
     - {fileID: 8300000, guid: 0a81f492a09706643bbfcbf0dccff13a, type: 3}

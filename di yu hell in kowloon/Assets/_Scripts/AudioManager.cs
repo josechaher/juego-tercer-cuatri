@@ -26,7 +26,13 @@ public class AudioManager : MonoBehaviour
     public void Play(string name, int n = 0)
     {
         if (_sounds.ContainsKey(name))
-            audioSource.PlayOneShot(_sounds[name].audio[n]);
+        {
+            if (_sounds[name].type == TypesSound.music)
+                PlayMusic(name, n);
+            else
+                audioSource.PlayOneShot(_sounds[name].audio[n]);
+
+        }
     }
 
     public enum TypesSound
@@ -34,7 +40,18 @@ public class AudioManager : MonoBehaviour
         background,
         player_sfx,
         object_sfx,
+        music,
     }
 
+    private void PlayMusic(string name, int n)
+    {
+        AudioSource musicSource = gameObject.AddComponent<AudioSource>();
+
+        musicSource.clip = _sounds[name].audio[n];
+
+        musicSource.loop = _sounds[name].loop;
+
+        musicSource.Play();
+    }
 
 }
