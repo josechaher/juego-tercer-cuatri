@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator RemoveComponentAfterPlaying(AudioSource audioSource) {
 
-        while (audioSource.isPlaying && audioSource == null)
+        while (audioSource.isPlaying)
         {
             yield return new WaitForSeconds(1);
         }
