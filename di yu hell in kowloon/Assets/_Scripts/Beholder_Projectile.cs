@@ -31,7 +31,6 @@ public class Beholder_Projectile : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             player.TakeDamage(20);
-            Debug.Log("Le pegue al player.");
             Destroy(gameObject);
 
         }

@@ -133,9 +133,10 @@ public class Ball : MonoBehaviour
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy)
         {
-            enemy.TakeDamage((charge * maxDamage) / maxCharge);
+            float baseDamage = (charge * maxDamage) / maxCharge;
+            bool crit = enemy.critCollider == collision.collider;
+            enemy.TakeDamage(baseDamage * (crit ? 2 : 1));
             Instantiate(enemy.bloodParticles, transform.position, Quaternion.identity, enemy.transform);
-            Debug.Log("Llamando particulas.");
         }
 
         if (bounces <= 0)

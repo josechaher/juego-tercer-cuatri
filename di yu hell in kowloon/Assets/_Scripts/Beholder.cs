@@ -59,10 +59,17 @@ public class Beholder : Enemy
         }
     }
 
-    private void OnDestroy()
+    public override void TakeDamage(float damage)
     {
-        Instantiate(explodeParticles, transform.position, Quaternion.identity, null);
-        FindObjectOfType<Level3Events>().BeholderDestroyed();
+        CurrentHealth -= damage;
+        UpdateSlider();
+
+        if (CurrentHealth <= 0)
+        {
+            Instantiate(explodeParticles, transform.position, Quaternion.identity, null);
+            FindObjectOfType<Level3Events>().BeholderDestroyed();
+            Destroy(gameObject);
+        }
     }
 
     private void ResetAttack()

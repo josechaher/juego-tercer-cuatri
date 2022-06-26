@@ -7,6 +7,7 @@ public abstract class Enemy : Entity
 {
     [SerializeField] private Slider slider;
     public ParticleSystem bloodParticles;
+    public Collider critCollider;
 
     // ArtificialUpdate is called on Entity's update function
     protected override void ArtificialUpdate()
@@ -20,7 +21,11 @@ public abstract class Enemy : Entity
     {
         base.TakeDamage(damage);
 
-        // Updates slider value
+        UpdateSlider();
+    }
+    // Updates slider value
+    protected void UpdateSlider()
+    {
         slider.value = CurrentHealth / MaxHealth;
     }
 }
