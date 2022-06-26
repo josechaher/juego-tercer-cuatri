@@ -1,0 +1,17 @@
+    IEnumerator RemoveComponentAfterPlaying(AudioSource audioSource) {
+
+        // Check that the audiosource has not been destroyed
+        while (audioSource != null)
+        {
+            // If the audio source is still playing, wait one second and check again. If not, destroy it.
+            if (audioSource.isPlaying)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                Destroy(audioSource);
+                audioSource = null;
+            }
+        }
+    }
