@@ -85,7 +85,7 @@ public class Player_Movement
             {
                 if (timeUntilNextFoostep < 0)
                 {
-                    AudioManager.Instance.Play("footsteps_sfx",Random.Range(0,numberOfFootstepSounds));
+                    AudioManager.Instance.Play("footsteps_sfx", Random.Range(0, numberOfFootstepSounds));
                     timeUntilNextFoostep = timeBetweenFootsteps;
                 }
                 timeUntilNextFoostep -= Time.deltaTime;

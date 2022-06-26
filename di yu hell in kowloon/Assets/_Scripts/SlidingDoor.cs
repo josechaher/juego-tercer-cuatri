@@ -10,7 +10,7 @@ public class SlidingDoor : MonoBehaviour
 
     public void Open()
     {
-        GetComponent<AudioSource>().Play();
+        AudioManager.Instance.Play("sliding_door", transform);
         StartCoroutine(Slide());
     }
 

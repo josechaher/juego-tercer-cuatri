@@ -9,6 +9,4 @@ public struct StructSound
     public AudioClip[] clip;
     public bool loop;
     public AudioManager.TypesSound type;
-  
-
 }

@@ -7,6 +7,14 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    public enum TypesSound
+    {
+        background,
+        player_sfx,
+        object_sfx,
+        music,
+    }
+
     private AudioSource audioSource;
     public StructSound[] sound;
 
@@ -14,6 +22,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField][Range(0, 1)]
     private float musicVolume = 0.5f;
+
+    [SerializeField] private float startMasterVolume = 0.2f;
 
     public Dictionary<string, StructSound> _sounds = new Dictionary<string, StructSound>();
 
@@ -23,7 +33,7 @@ public class AudioManager : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("MasterVolume"))
         {
-            PlayerPrefs.SetFloat("MasterVolume", 0.2f);
+            PlayerPrefs.SetFloat("MasterVolume", startMasterVolume);
         }
 
         volumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
@@ -38,6 +48,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Plays simple sound in mono
     public void Play(string name, int n = 0)
     {
         if (_sounds.ContainsKey(name))
@@ -50,6 +61,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Creates audio source and attaches it to parent, plays it, then destroys it when finished
     public void Play(string name, Transform transform, int n = 0)
     {
         if (_sounds.ContainsKey(name))
@@ -61,17 +73,15 @@ public class AudioManager : MonoBehaviour
             audioSource.loop = sound.loop;
             audioSource.spatialBlend = 1;
             audioSource.Play();
+
+            if (!sound.loop)
+            {
+                StartCoroutine(RemoveComponentAfterPlaying(audioSource));
+            }
         }
     } 
 
-    public enum TypesSound
-    {
-        background,
-        player_sfx,
-        object_sfx,
-        music,
-    }
-
+    // Creates audio source with music
     private void PlayMusic(string name, int n)
     {
         AudioSource musicSource = gameObject.AddComponent<AudioSource>();
@@ -84,9 +94,20 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+
     public void changeVolume()
     {
         PlayerPrefs.SetFloat("MasterVolume", volumeSlider.value);
         AudioListener.volume = volumeSlider.value;
+    }
+
+    IEnumerator RemoveComponentAfterPlaying(AudioSource audioSource) {
+
+        while (audioSource.isPlaying)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        Destroy(audioSource);
     }
 }

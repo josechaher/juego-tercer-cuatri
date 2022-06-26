@@ -14,7 +14,7 @@ public class Target : MonoBehaviour
         {
             slidingDoor.TargetDestroyed(this);
 
-            GetComponent<AudioSource>().Play();
+            AudioManager.Instance.Play("target_hit", transform);
             GetComponent<MeshRenderer>().enabled = false; //Removes object from view
             GetComponent<BoxCollider>().enabled = false; //Prevents possible future collisions with invisible object
             Destroy(gameObject, 2); // Delays object destruction to let sound play
