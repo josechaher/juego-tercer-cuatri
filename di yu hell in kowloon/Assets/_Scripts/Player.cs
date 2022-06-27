@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 //[RequireComponent(typeof(CharacterController))]
 
-public class Player : Entity
+public class Player : Entity, ICanInstakill
 {
 
     // IDLE
@@ -142,7 +142,7 @@ public class Player : Entity
         }
     }
 
-    public void Die()
+    public void InstakillMethod()
     {
         CurrentHealth = 0;
         if (CurrentHealth <= 0)

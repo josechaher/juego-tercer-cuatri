@@ -6,10 +6,10 @@ public class Spikes : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Player player = other.GetComponent<Player>();
-        if (player)
+        ICanInstakill spikeinterface = other.GetComponent<ICanInstakill>();
+        if (spikeinterface != null)
         {
-            player.Die();
+            spikeinterface.InstakillMethod();
         }
     }
 }
