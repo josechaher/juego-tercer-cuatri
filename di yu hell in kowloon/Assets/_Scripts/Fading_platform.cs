@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Pedro Chiswell
 public class Fading_platform : MonoBehaviour
 {
     [SerializeField] string playerTag = "Player";

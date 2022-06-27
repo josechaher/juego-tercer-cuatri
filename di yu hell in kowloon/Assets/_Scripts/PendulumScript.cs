@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+// Lucas Peck
 public class PendulumScript : MonoBehaviour
 {
     public Transform pivot;

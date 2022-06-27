@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+// Rodrigo Chiale
 public class Collector : MonoBehaviour
 {
 

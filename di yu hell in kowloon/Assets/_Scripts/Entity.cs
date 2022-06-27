@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Todos
 public abstract class Entity : MonoBehaviour, IDamageable<float>
 {
 	protected float CurrentHealth { get; set; } // Entity's current health

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Diego Salazar, Jose Chaher, Lucas Peck
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;

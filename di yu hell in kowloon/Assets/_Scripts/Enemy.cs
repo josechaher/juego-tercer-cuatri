@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Todos
 public abstract class Enemy : Entity
 {
     [SerializeField] private Slider slider;

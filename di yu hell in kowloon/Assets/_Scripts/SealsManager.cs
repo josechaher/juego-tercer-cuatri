@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Rodrigo Chiale, Jose Chaher
 public class SealsManager : MonoBehaviour
 {
     public static SealsManager Instance;

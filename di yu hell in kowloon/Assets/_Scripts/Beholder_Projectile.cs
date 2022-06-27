@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Diego Salazar, Jose Chaher
 public class Beholder_Projectile : MonoBehaviour
 {
     public float speed = 3;
@@ -42,8 +43,4 @@ public class Beholder_Projectile : MonoBehaviour
         
     }
 
-    private void OnDestroy()
-    {
-        
-    }
 }

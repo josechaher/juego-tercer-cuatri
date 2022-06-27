@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// Diego Salazar, Jose Chaher, Rodrigo Chiale
 public class Level3Events : MonoBehaviour
 {
     [SerializeField] string music_clip;

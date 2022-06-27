@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Rodrigo Chiale, Jose Chaher, Pedro Chiswell
 public class ChangeScene : MonoBehaviour
 {
     public static int currentLevelSceneIndex;

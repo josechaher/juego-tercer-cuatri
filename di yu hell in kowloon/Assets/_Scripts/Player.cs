@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-//[RequireComponent(typeof(CharacterController))]
-
+// Todos
 public class Player : Entity, ICanInstakill
 {
 

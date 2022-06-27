@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// Todos
 public class Demon : Enemy
 {
     public NavMeshAgent agent;

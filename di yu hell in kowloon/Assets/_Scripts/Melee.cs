@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jose Chaher
 public class Melee : MonoBehaviour
 {
     [SerializeField] float meleeDamage = 50;

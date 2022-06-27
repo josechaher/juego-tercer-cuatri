@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jose Chaher, Pedro Chiswell, Diego Salazar
 public class Ball : MonoBehaviour
 {
     // DAMAGE, BOUNCES, SPEED,

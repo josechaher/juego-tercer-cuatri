@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jose Chaher
 public static class ChangeLayer
 {
     public static void SetLayerRecursively(this Transform parent, string layer)

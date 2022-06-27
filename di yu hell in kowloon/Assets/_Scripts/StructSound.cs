@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Diego Salazar
 [System.Serializable]
 public struct StructSound
 {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Rodrigo Chiale, Jose Chaher
 public class DoorSwitch : MonoBehaviour
 {
     public delegate void Contact();

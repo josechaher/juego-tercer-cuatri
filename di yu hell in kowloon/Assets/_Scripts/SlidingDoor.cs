@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Jose Chaher, Rodrigo Chiale
 public class SlidingDoor : MonoBehaviour
 {
     [SerializeField] List<Target> targets;
