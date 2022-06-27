@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, IDamageable<float>
 {
 	protected float CurrentHealth { get; set; } // Entity's current health
 	protected float MaxHealth { get; set; } // Entity's maximum health
