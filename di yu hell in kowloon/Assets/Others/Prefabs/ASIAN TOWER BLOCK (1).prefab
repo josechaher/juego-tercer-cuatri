@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 3602127220429645251}
   - component: {fileID: 455576088974092902}
   - component: {fileID: 2429268978735423148}
-  - component: {fileID: 3924863857729995308}
+  - component: {fileID: 19046100}
   m_Layer: 0
   m_Name: ASIAN TOWER BLOCK (1)
   m_TagString: Untagged
@@ -256,8 +256,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3924863857729995308
-BoxCollider:
+--- !u!64 &19046100
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -266,9 +266,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 14.500004, y: 30.628155, z: 15.622398}
-  m_Center: {x: -0.0000019073486, y: 15.314077, z: -0.003970624}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7870797482582338858, guid: 6e6efce93240d7842a6fff12c4f2fb76, type: 3}
 --- !u!1 &5457632024756325234
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +364,6 @@ GameObject:
   - component: {fileID: 1731867178895550705}
   - component: {fileID: 7809411764607907515}
   - component: {fileID: 7549075882746541261}
-  - component: {fileID: 2142550651}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1924,16 +1924,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &2142550651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7970683284261663252}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 17.63919, y: 1.0000226, z: 17.665403}
-  m_Center: {x: 5.146379, y: 0.4999886, z: 7.8326864}
