@@ -63,7 +63,7 @@ public class Beholder : Enemy
     public override void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        UpdateSlider();
+        UpdateSlider(damage);
 
         if (CurrentHealth <= 0)
         {

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 // Todos
 public abstract class Enemy : Entity
 {
+    [SerializeField] private Canvas canvas;
     [SerializeField] private Slider slider;
+    [SerializeField] private Text damageDisplay;
     public ParticleSystem bloodParticles;
     public Collider critCollider;
 
@@ -14,7 +16,7 @@ public abstract class Enemy : Entity
     protected override void ArtificialUpdate()
     {
         // Makes slider face enemy
-        slider.transform.forward = -Camera.main.transform.forward;
+        canvas.transform.forward = -Camera.main.transform.forward;
     }
     
 
@@ -22,11 +24,13 @@ public abstract class Enemy : Entity
     {
         base.TakeDamage(damage);
 
-        UpdateSlider();
+        UpdateSlider(damage);
     }
     // Updates slider value
-    protected void UpdateSlider()
+    protected void UpdateSlider(float damage)
     {
+        damageDisplay.text = Mathf.RoundToInt(damage).ToString();
+        damageDisplay.color = Color.white;
         slider.value = CurrentHealth / MaxHealth;
     }
 }
