@@ -6,7 +6,47 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1001_Diffuse
+    second: {fileID: 2800000, guid: faa3b2741c83fab468b7b814f5a83881, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1001_Glossiness
+    second: {fileID: 2800000, guid: 3a053e7779f9a1d4abacd6c81f6619ae, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1001_Normal
+    second: {fileID: 2800000, guid: 425a31a0966d7b04eb3b1825ccb986a8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1001_Specular
+    second: {fileID: 2800000, guid: 98e121eaef8b8ab4f8ff9bc1763f40e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1002_Diffuse
+    second: {fileID: 2800000, guid: 0b6db5d87399a5e44a0a855dbf032073, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1002_Glossiness
+    second: {fileID: 2800000, guid: e6ae13b2c5db1a24f908312526d67778, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1002_Normal
+    second: {fileID: 2800000, guid: 0e71a5c9cced33f40bbdba8c8b61f67a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch30_1002_Specular
+    second: {fileID: 2800000, guid: 1c646fc1f02093744ac10222fb336b7a, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
