@@ -136,7 +136,7 @@ public class Ball : MonoBehaviour
         {
             float baseDamage = (charge * maxDamage) / maxCharge;
             bool crit = enemy.critCollider == collision.collider;
-            enemy.TakeDamage(baseDamage * (crit ? 2 : 1));
+            enemy.TakeDamage(baseDamage, crit);
             Instantiate(enemy.bloodParticles, transform.position, Quaternion.identity, enemy.transform);
         }
 

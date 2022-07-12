@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3379319098330377292}
   - component: {fileID: 5381234817940322007}
   - component: {fileID: 5775971312615229323}
+  - component: {fileID: 570914784984844950}
   m_Layer: 0
   m_Name: Damage Display
   m_TagString: Untagged
@@ -79,6 +80,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 123456789
+--- !u!95 &570914784984844950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297542767222155251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1d9165032db9f64aa80c901c16dd597, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &334474118526957545
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ public abstract class Entity : MonoBehaviour, IDamageable<float>
 	protected float CurrentHealth { get; set; } // Entity's current health
 	protected float MaxHealth { get; set; } // Entity's maximum health
 
+    private void Awake()
+    {
+		ArtificialAwake();
+    }
+
     private void Update()
     {
 		ArtificialUpdate();
@@ -24,9 +29,10 @@ public abstract class Entity : MonoBehaviour, IDamageable<float>
 		CurrentHealth = MaxHealth;
     }
 
+	protected abstract void ArtificialAwake();
 	protected abstract void ArtificialUpdate();
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, bool crit = false)
 	{
 		CurrentHealth -= damage;
 

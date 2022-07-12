@@ -5,7 +5,7 @@ using UnityEngine;
 // Pedro Chiswell
 public interface IDamageable<T>
 {
-    void TakeDamage(T damage);
+    void TakeDamage(T damage, bool crit = false);
 }
 
 public interface ICanInstakill

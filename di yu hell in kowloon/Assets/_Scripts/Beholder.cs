@@ -23,14 +23,16 @@ public class Beholder : Enemy
 
     public ParticleSystem explodeParticles;
 
-    private void Awake()
+    protected override void ArtificialAwake()
     {
+        base.ArtificialAwake();
         player = GameObject.Find("Player").transform;
         SetHealth(health);
     }
 
-    private void Update()
+    protected override void ArtificialUpdate()
     {
+        base.ArtificialUpdate();
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         if (playerInAttackRange)
             AttackPlayer();
@@ -60,10 +62,13 @@ public class Beholder : Enemy
         }
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, bool crit = false)
     {
+        if (crit)
+            damage *= 2;
+
         CurrentHealth -= damage;
-        UpdateSlider(damage);
+        UpdateSlider(damage, crit);
 
         if (CurrentHealth <= 0)
         {

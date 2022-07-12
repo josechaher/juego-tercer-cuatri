@@ -9,8 +9,15 @@ public abstract class Enemy : Entity
     [SerializeField] private Canvas canvas;
     [SerializeField] private Slider slider;
     [SerializeField] private Text damageDisplay;
+    private Animator textAnimator;
+
     public ParticleSystem bloodParticles;
     public Collider critCollider;
+
+    protected override void ArtificialAwake()
+    {
+        textAnimator = damageDisplay.gameObject.GetComponent<Animator>();
+    }
 
     // ArtificialUpdate is called on Entity's update function
     protected override void ArtificialUpdate()
@@ -20,17 +27,24 @@ public abstract class Enemy : Entity
     }
     
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, bool crit = false)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, crit);
 
-        UpdateSlider(damage);
+        UpdateSlider(damage, crit);
     }
     // Updates slider value
-    protected void UpdateSlider(float damage)
+    protected void UpdateSlider(float damage, bool crit = false)
     {
         damageDisplay.text = Mathf.RoundToInt(damage).ToString();
-        damageDisplay.color = Color.white;
+
+        if (crit)
+            damageDisplay.color = Color.red;
+        else
+            damageDisplay.color = Color.white;
+
+        textAnimator.SetTrigger("Fade");
+
         slider.value = CurrentHealth / MaxHealth;
     }
 }

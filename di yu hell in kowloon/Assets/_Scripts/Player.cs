@@ -54,12 +54,12 @@ public class Player : Entity, ICanInstakill
 
     private bool godMode = false;
 
-    private void Awake()
+
+    protected override void ArtificialAwake()
     {
         rb = GetComponent<Rigidbody>();
         SetHealth(health);
     }
-
 
     void Start()
     {
@@ -122,7 +122,7 @@ public class Player : Entity, ICanInstakill
         }
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, bool crit = false)
     {
         if (!godMode)
         {
