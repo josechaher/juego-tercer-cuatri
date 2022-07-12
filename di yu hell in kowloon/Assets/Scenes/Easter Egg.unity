@@ -18291,7 +18291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8688229371687110115, guid: 13e43df208ba868499b9b287822a81bc, type: 3}
       propertyPath: m_AgentTypeID
-      value: -1372625422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8788351879226091420, guid: 13e43df208ba868499b9b287822a81bc, type: 3}
       propertyPath: sightRange
