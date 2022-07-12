@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Todos
-public class Demon : Enemy
+public class BigDemon : Enemy
 {
     public NavMeshAgent agent;
 
     public Transform player;
 
-    [SerializeField] Transform projectileSpawn;
-
     public LayerMask whatIsGround, whatIsPlayer;
 
-    private float health = 75;
+    [SerializeField] private float health = 150;
 
     //patrol
-    public Vector3 walkPoint;
+    [SerializeField] private Vector3 walkPoint1;
+    [SerializeField] private Vector3 walkPoint2;
+    private Vector3 currentWalkPoint;
+
     bool walkPointSet;
     public float walkPointRange;
 
@@ -25,7 +25,6 @@ public class Demon : Enemy
     public float timeBetweenAttacks;
     bool attacking;
     bool alreadyAttacked;
-    public GameObject projectile;
 
     bool chasing = false;
 
@@ -40,6 +39,12 @@ public class Demon : Enemy
         base.ArtificialAwake();
         player = FindObjectOfType<Player>().transform;
         agent = GetComponent<NavMeshAgent>();
+
+        walkPoint1.y = transform.position.y;
+        walkPoint2.y = transform.position.y;
+
+        currentWalkPoint = walkPoint1;
+        agent.SetDestination(currentWalkPoint);
 
         animator = GetComponent<Animator>();
         SetHealth(health);
@@ -64,39 +69,25 @@ public class Demon : Enemy
 
     private void Patroling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        agent.SetDestination(currentWalkPoint);
 
-        if(walkPointSet)
-        {
-            agent.SetDestination(walkPoint);
-            animator.SetBool("Walking", true);
-        }
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        Vector3 distanceToWalkPoint = transform.position - currentWalkPoint;
 
         // If distance to walkpoint is less than 1, then find another walkpoint.
         if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        // Check if there is ground below walkpoint before confirming walkpoint
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(walkPoint, out hit, 1f, NavMesh.AllAreas))
+            animator.SetBool("Walking", true);
+
+            if (currentWalkPoint == walkPoint1)
             {
-                agent.SetDestination(hit.position);
-                walkPointSet = true;
-                chasing = false;
+                currentWalkPoint = walkPoint2;
             }
+            else
+            {
+                currentWalkPoint = walkPoint1;
+            }
+
+            agent.SetDestination(currentWalkPoint);
         }
     }
 
@@ -134,23 +125,23 @@ public class Demon : Enemy
 
             agent.SetDestination(transform.position);
 
-            Invoke(nameof(ThrowProjectile), 1.2f);
+            // Attack
 
             // Wait before next attack
-            alreadyAttacked = true;            
+            alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
-    private void ThrowProjectile()
-    {
-        // Shoots a projectile forwards (towards the enemy)
-        Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.LookRotation(player.position - (Vector3.right * projectileSpawn.position.x + Vector3.forward * projectileSpawn.position.z))).GetComponent<Rigidbody>();
-        rb.AddForce(rb.transform.forward * 32f, ForceMode.Impulse);
-    }
-
     private void ResetAttack()
     {
-        alreadyAttacked = false;        
+        alreadyAttacked = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(walkPoint1, 1f);
+        Gizmos.DrawWireSphere(walkPoint2, 1f);
     }
 }
