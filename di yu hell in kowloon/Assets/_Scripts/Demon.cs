@@ -32,8 +32,9 @@ public class Demon : Enemy
 
     Animator animator;
 
-    private void Awake()
+    protected override void ArtificialAwake()
     {
+        base.ArtificialAwake();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
 
