@@ -23,8 +23,11 @@ public class Demon : Enemy
 
     //attack
     public float timeBetweenAttacks;
+    bool attacking;
     bool alreadyAttacked;
     public GameObject projectile;
+
+    bool chasing = false;
 
     //States
     public float sightRange, attackRange;
@@ -53,7 +56,7 @@ public class Demon : Enemy
         if (!playerInSightRange && !playerInAttackRange) Patroling();
 
         // If player is in sight, chase
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInSightRange && !playerInAttackRange && !alreadyAttacked) ChasePlayer();
 
         // If player is in range, attack
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
@@ -66,7 +69,7 @@ public class Demon : Enemy
         if(walkPointSet)
         {
             agent.SetDestination(walkPoint);
-            animator.SetTrigger("Walk");
+            animator.SetBool("Walking", true);
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -92,37 +95,46 @@ public class Demon : Enemy
             {
                 agent.SetDestination(hit.position);
                 walkPointSet = true;
+                chasing = false;
             }
         }
     }
 
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        if (!chasing)
+        {
+            attacking = false;
+            chasing = true;
+            animator.SetBool("Walking", true);
+        }
+
+        if (chasing)
+        {
+            agent.SetDestination(player.position);
+        }
     }
 
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
-
-
+        if (!attacking)
+        {
+            attacking = true;
+            chasing = false;
+            animator.SetBool("Walking", false);
+        }
 
         transform.LookAt(player);
 
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-
         if (!alreadyAttacked)
         {
             animator.SetTrigger("Attack");
 
-            // Shoots a projectile forwards (towards the enemy)
-            Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 2f, ForceMode.Impulse);
+            agent.SetDestination(transform.position);
 
-
-            ///
+            Invoke(nameof(ThrowProjectile), 1.2f);
 
             // Wait before next attack
             alreadyAttacked = true;            
@@ -130,8 +142,15 @@ public class Demon : Enemy
         }
     }
 
+    private void ThrowProjectile()
+    {
+        // Shoots a projectile forwards (towards the enemy)
+        Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.LookRotation(player.position - (Vector3.right * projectileSpawn.position.x + Vector3.forward * projectileSpawn.position.z))).GetComponent<Rigidbody>();
+        rb.AddForce(rb.transform.forward * 32f, ForceMode.Impulse);
+    }
+
     private void ResetAttack()
     {
-        alreadyAttacked = false;
+        alreadyAttacked = false;        
     }
 }
