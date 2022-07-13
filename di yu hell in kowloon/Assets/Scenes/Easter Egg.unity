@@ -7360,7 +7360,7 @@ PrefabInstance:
       objectReference: {fileID: 779489739}
     - target: {fileID: 214110760504815385, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 214110760504815461, guid: 0b6d0727ac54eb042b0654d00d9a944a, type: 3}
       propertyPath: m_RootOrder
@@ -10870,7 +10870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629063014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: -5, z: 61}
+  m_LocalPosition: {x: -15.2, y: -5, z: 61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 550993506}
@@ -11243,7 +11243,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh362298
+  m_Name: pb_Mesh40182
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
