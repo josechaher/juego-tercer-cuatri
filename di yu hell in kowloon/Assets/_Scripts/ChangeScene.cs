@@ -27,10 +27,15 @@ public class ChangeScene : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            LoadScene("Level 2");
+            LoadScene("Easter Egg");
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            LoadScene("Level 2");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             LoadScene("Level 3");
         }

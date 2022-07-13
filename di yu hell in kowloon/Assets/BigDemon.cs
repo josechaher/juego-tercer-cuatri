@@ -13,6 +13,8 @@ public class BigDemon : Enemy
 
     [SerializeField] private float health = 150;
 
+    [SerializeField] private GameObject splash;
+
     //patrol
     [SerializeField] private Vector3 walkPoint1;
     [SerializeField] private Vector3 walkPoint2;
@@ -126,6 +128,7 @@ public class BigDemon : Enemy
             agent.SetDestination(transform.position);
 
             // Attack
+            Instantiate(splash, transform.position + Vector3.up * (splash.transform.localScale.y/2), Quaternion.identity, transform);
 
             // Wait before next attack
             alreadyAttacked = true;

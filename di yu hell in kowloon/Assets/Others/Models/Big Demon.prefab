@@ -815,6 +815,7 @@ GameObject:
   - component: {fileID: 6216999939721483481}
   - component: {fileID: 8688229371687110115}
   - component: {fileID: 8788351879226091420}
+  - component: {fileID: 1023817551}
   m_Layer: 0
   m_Name: Big Demon
   m_TagString: Untagged
@@ -906,14 +907,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   health: 150
-  walkPoint1: {x: 0, y: 0, z: 0}
-  walkPoint2: {x: 0, y: 0, z: 0}
+  splash: {fileID: 6739358593088741626, guid: c2ce4c869e5400f4db71d44b9c87c41f, type: 3}
+  walkPoint1: {x: -0.5, y: -3.5, z: 60}
+  walkPoint2: {x: -0.5, y: -3.5, z: 80}
   walkPointRange: 10
   timeBetweenAttacks: 3
-  sightRange: 10
+  sightRange: 20
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
+--- !u!136 &1023817551
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859278205070398489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &1219861711221168579
 GameObject:
   m_ObjectHideFlags: 0

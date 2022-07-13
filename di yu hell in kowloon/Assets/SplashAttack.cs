@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SplashAttack : MonoBehaviour
 {
-    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackTime;
+    private float attackSpeed;
     [SerializeField] Color startColor = new Color(1, 1, 1, 0.1f);
     [SerializeField] Color finalColor = new Color(1, 0, 0, 0.9f);
 
-    Color currentColor;
+    [SerializeField] ParticleSystem explodeParticles;
 
     Renderer renderer;
 
@@ -18,8 +19,8 @@ public class SplashAttack : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();
-        currentColor = startColor;
 
+        attackSpeed = 1 / attackTime;
         StartCoroutine(changeColors(attackSpeed));
     }
 
@@ -29,9 +30,12 @@ public class SplashAttack : MonoBehaviour
         while (t <= 1.0f)
         {
             t += speed * Time.deltaTime;
-            currentColor = Color.Lerp(currentColor, finalColor, t);
-            renderer.material.color = currentColor;
+            renderer.material.color = Color.Lerp(startColor, finalColor, t);
             yield return null;
         }
+
+        ParticleSystem ps = Instantiate(explodeParticles, transform.position, Quaternion.identity);
+        ps.transform.localScale = Vector3.one * 1;
+        Destroy(gameObject);
     }
 }
