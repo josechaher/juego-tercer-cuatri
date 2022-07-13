@@ -145,7 +145,7 @@ public class Demon : Enemy
     private void ThrowProjectile()
     {
         // Shoots a projectile forwards (towards the enemy)
-        Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.LookRotation(player.position - (Vector3.right * projectileSpawn.position.x + Vector3.forward * projectileSpawn.position.z))).GetComponent<Rigidbody>();
+        Rigidbody rb = Instantiate(projectile, projectileSpawn.position, Quaternion.LookRotation((player.position + Vector3.up * 1.5f) - projectileSpawn.position)).GetComponent<Rigidbody>();
         rb.AddForce(rb.transform.forward * 32f, ForceMode.Impulse);
     }
 
