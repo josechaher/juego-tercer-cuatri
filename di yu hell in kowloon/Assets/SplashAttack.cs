@@ -9,16 +9,19 @@ public class SplashAttack : MonoBehaviour
     [SerializeField] Color startColor = new Color(1, 1, 1, 0.1f);
     [SerializeField] Color finalColor = new Color(1, 0, 0, 0.9f);
 
+    [SerializeField] ParticleSystem chargeParticles;
     [SerializeField] ParticleSystem explodeParticles;
 
-    Renderer renderer;
+    MeshRenderer meshRenderer;
 
-    float timer = 0;
+    private BigDemon bigDemon;
 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        bigDemon = transform.parent.GetComponent<BigDemon>();
+
+        meshRenderer = GetComponent<MeshRenderer>();
 
         attackSpeed = 1 / attackTime;
         StartCoroutine(changeColors(attackSpeed));
@@ -26,15 +29,24 @@ public class SplashAttack : MonoBehaviour
 
     IEnumerator changeColors(float speed)
     {
+        ParticleSystem chargePS = Instantiate(chargeParticles, bigDemon.chest.position, Quaternion.identity, bigDemon.chest);
+
         var t = 0.0f;
         while (t <= 1.0f)
         {
             t += speed * Time.deltaTime;
-            renderer.material.color = Color.Lerp(startColor, finalColor, t);
+            meshRenderer.material.color = Color.Lerp(startColor, finalColor, t);
             yield return null;
         }
 
-        ParticleSystem ps = Instantiate(explodeParticles, transform.position + Vector3.up, Quaternion.identity);
+        chargePS.Stop();
+        Collider collider = GetComponent<Collider>();        
+
+        ParticleSystem expPS = Instantiate(explodeParticles, transform.position, Quaternion.identity);
+        expPS.transform.eulerAngles = new Vector3(-90, 0, 0);
+        bigDemon.SplashDamage();
         Destroy(gameObject);
     }
+
+
 }

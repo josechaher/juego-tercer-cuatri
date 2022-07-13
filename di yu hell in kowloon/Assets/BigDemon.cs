@@ -14,6 +14,7 @@ public class BigDemon : Enemy
     [SerializeField] private float health = 150;
 
     [SerializeField] private GameObject splash;
+    [SerializeField] private float splashKnockback;
 
     //patrol
     [SerializeField] private Vector3 walkPoint1;
@@ -28,7 +29,11 @@ public class BigDemon : Enemy
     bool attacking;
     bool alreadyAttacked;
 
+    [SerializeField] private float splashSize = 4f;
+
     bool chasing = false;
+
+    public Transform chest;
 
     //States
     public float sightRange, attackRange;
@@ -139,6 +144,19 @@ public class BigDemon : Enemy
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    public void SplashDamage() {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, splashSize);
+        foreach (var collider in colliders)
+        {
+            Player player = collider.GetComponent<Player>();
+            if (player)
+            {
+                player.TakeDamage(40);
+                player.GetComponent<Rigidbody>().AddForce(Vector3.up * splashKnockback, ForceMode.Impulse);
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()

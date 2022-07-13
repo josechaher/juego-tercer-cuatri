@@ -908,10 +908,12 @@ MonoBehaviour:
     m_Bits: 8
   health: 150
   splash: {fileID: 6739358593088741626, guid: c2ce4c869e5400f4db71d44b9c87c41f, type: 3}
+  splashKnockback: 5
   walkPoint1: {x: -0.5, y: -3.5, z: 60}
   walkPoint2: {x: -0.5, y: -3.5, z: 80}
-  walkPointRange: 10
+  walkPointRange: 20
   timeBetweenAttacks: 3
+  splashSize: 4
   sightRange: 20
   attackRange: 3
   playerInSightRange: 0
