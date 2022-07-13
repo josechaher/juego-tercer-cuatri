@@ -34,8 +34,7 @@ public class SplashAttack : MonoBehaviour
             yield return null;
         }
 
-        ParticleSystem ps = Instantiate(explodeParticles, transform.position, Quaternion.identity);
-        ps.transform.localScale = Vector3.one * 1;
+        ParticleSystem ps = Instantiate(explodeParticles, transform.position + Vector3.up, Quaternion.identity);
         Destroy(gameObject);
     }
 }
